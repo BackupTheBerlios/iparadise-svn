@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.hrm.PersonResumeEntity" table="PERSON_RESUMES">
+
+        <id name="personResumeId" type="java.lang.Integer">
+            <column name="PERSON_RESUMES_ID"/>
+            <generator class="foreign">
+                <param name="property">informalOrganizationEntity</param>
+            </generator>
+        </id>
+
+        <one-to-one name="informalOrganizationEntity" class="com.apsg.samane.g16.organization.InformalOrganizationEntity"
+                    cascade="save-update,persist"  lazy="false"/>
+
+        <many-to-one name="personalEntity" column="PERSONAL_ID" class="com.apsg.samane.g16.hrm.PersonalEntity"
+                     cascade="save-update,persist" lazy="false"/>
+
+        <set name="contactMechanismEntities" table="CONTACT_MECHANISMS" cascade="save-update,persist">
+            <key column="PERSON_RESUMES_ID"/>
+            <one-to-many class="com.apsg.samane.g16.hrm.ContactMechanismEntity" />
+        </set>
+
+        <set name="passportEntities" table="PASSPORT" cascade="save-update,persist">
+            <key column="PERSON_RESUMES_ID" />
+            <one-to-many class="com.apsg.samane.g16.hrm.PassportEntity" />
+        </set>
+
+        <set name="languageEntities" table="RESUME_LANGUAGE" >
+            <key column="PERSON_RESUMES_ID"/>
+            <many-to-many class="com.apsg.samane.g16.hrm.LanguageEntity" column="LANGUAGE_ID" />
+        </set>
+
+        <set name="skillsEntities" table="RESUME_SKILLS">
+            <key column="PERSON_RESUMES_ID"/>
+            <many-to-many class="com.apsg.samane.g16.hrm.SkillsEntity" column="SKILL_ID" />
+        </set>
+
+        <set name="educationEntities" table="RESUME_EDUCATION" cascade="save-update,persist">
+            <key column="PERSON_RESUMES_ID"/>
+            <many-to-many class="com.apsg.samane.g16.hrm.EducationEntity" column="EDUCATION_ID" />
+        </set>
+
+        <set name="resumeLicenses" table="resumeLicenses" cascade="save-update,persist">
+            <key>
+                <column name="PERSON_RESUMES_ID" not-null="true"/>
+            </key>
+            <one-to-many class="com.apsg.samane.g16.hrm.ResumeLicense"/>
+        </set>
+
+    </class>
+
+</hibernate-mapping>

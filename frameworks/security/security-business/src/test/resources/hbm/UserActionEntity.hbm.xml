@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.pdpsoft.security.UserActionEntity" table="USER_ACTION">
+
+        <id name="userActionId" column="USER_ACTION_PK">
+            <generator class="increment"/>
+        </id>
+        <property name="access" column="ACCESS_TYPE"/>
+
+        <!-- Relations goes here .... -->
+        <many-to-one name="systemUserEntity"
+                     column="SYSTEM_USER_FK"
+                     class="com.pdpsoft.security.UserActionEntity" />
+        <many-to-one name="systemActionEntity" 
+                     column="SYSTEM_ACTION_FK"
+                     class="com.pdpsoft.security.SystemActionEntity" />
+        <many-to-one name="systemGroupEntity"
+                     column="SYSTEM_GROUP_FK"
+                     class="com.pdpsoft.security.SystemGroupEntity" />
+        <!-- Relations finished .... -->
+
+        <!--
+           As a pattern in PDPSoft, all tables ought to have these two coloumns,
+           hence developers should only copy these two mappings in all of their
+           hibernate mapping files.
+           1) userNameIdentifier : which is the username of the login user
+           2) actionDate : meanwhile an object Create-Update happens, it
+                           represents the time at which it was allocated.
+                           Hence no need to set any value.
+        -->
+        <property name="userNameIdentifier" type="java.lang.String">
+            <column name="USER_ID"/>
+        </property>
+        <property name="actionDate" type="java.util.Date">
+            <column name="ACTIVITY_DATE"/>
+        </property>
+
+    </class>
+</hibernate-mapping>

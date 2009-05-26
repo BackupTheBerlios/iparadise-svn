@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.crm.ContactEntity" table="CONTACT">
+        <id name="contactEntityId" type="java.lang.Integer">
+            <column name="CONTACT_ID" precision="10" scale="0"/>
+            <generator class="foreign">
+                <param name="property">resellerEntity</param>
+            </generator>
+        </id>
+        <one-to-one name="resellerEntity" class="com.apsg.samane.g16.organization.ResellerEntity"
+                    cascade="save-update,persist"/>
+        <property name="financialManagerFirstname" type="java.lang.String">
+            <column name="FINANCIAL_MANAGER_FIRSTNAME" />
+        </property>
+        <property name="financialManagerLastname" type="java.lang.String">
+            <column name="FINANCIAL_MANAGER_LASTNAME" />
+        </property>
+        <property name="financialManagerPhoneNumber" type="java.lang.String">
+            <column name="FNNCL_MNGR_PHN_NMBR" />
+        </property>
+        <property name="financialManagerEmail" type="java.lang.String">
+            <column name="FINANCIAL_MANAGER_EMAIL" />
+        </property>
+        <property name="marketingManagerFirstname" type="java.lang.String">
+            <column name="MRKTNG_MNGR_FRSTNM" />
+        </property>
+        <property name="marketingManagerLastname" type="java.lang.String">
+            <column name="MRKTNG_MNGR_LSTNM" />
+        </property>
+        <property name="marketingManagerPhoneNumber" type="java.lang.String">
+            <column name="MRKTNG_MNGR_PHNNMBR" />
+        </property>
+        <property name="marketingManagerPhoneEmail" type="java.lang.String">
+            <column name="MRKTNG_MNGR_EMAIL" />
+        </property>
+        <property name="technicalManagerFirstname" type="java.lang.String">
+            <column name="TCHNCL_MNGR_FRSTNM" />
+        </property>
+        <property name="technicalManagerLastname" type="java.lang.String">
+            <column name="TCHNCL_MNGR_LASTNAM" />
+        </property>
+        <property name="technicalManagerPhoneNumber" type="java.lang.String">
+            <column name="TCHNCL_MNGR_PHNNMBR" />
+        </property>
+        <property name="technicalManagerEmail" type="java.lang.String">
+            <column name="TCHNCL_MNGR_EMAIL" />
+        </property>
+    </class>
+</hibernate-mapping>

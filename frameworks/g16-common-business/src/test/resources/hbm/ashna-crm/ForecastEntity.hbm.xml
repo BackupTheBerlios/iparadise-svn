@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.crm.ForecastEntity" table="FORECAST">
+        <id name="forecastId" type="java.lang.Integer" column="FORECAST_ID">
+            <generator class="increment"/>
+        </id>
+        <property name="q1Amount" type="java.lang.Integer">
+            <column name="Q1_AMOUNT"/>
+        </property>
+        <property name="q2Amount" type="java.lang.Integer">
+            <column name="Q2_AMOUNT"/>
+        </property>
+        <property name="q3Amount" type="java.lang.Integer">
+            <column name="Q3_AMOUNT"/>
+        </property>
+        <property name="q4Amount" type="java.lang.Integer">
+            <column name="Q4_AMOUNT"/>
+        </property>
+        <property name="forecastDate" type="java.util.Date">
+            <column name="FORECAST_DATE" />
+        </property>
+        <many-to-one name="resellerEntity" column="RESELLER_ID"
+                             class="com.apsg.samane.g16.organization.ResellerEntity" />
+        <many-to-one name="supplierEntity" column="SUPPLIER_ID"
+                             class="com.apsg.samane.g16.organization.SupplierEntity" />
+
+    </class>
+</hibernate-mapping>

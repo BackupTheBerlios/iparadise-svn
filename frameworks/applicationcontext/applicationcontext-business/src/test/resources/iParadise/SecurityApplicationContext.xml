@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean id="preGetAllAuthenticationCriterionCommand" scope="prototype"
+          class="com.pdpsoft.security.AuthenticationCriterionCommand"/>
+    <bean id="g16ProcessAuthorizationCommand" scope="prototype"
+          class="com.pdpsoft.security.AuthorizationCommand"/>
+    <bean id="g16ProcessGetActionsByGroupCommand" scope="prototype"
+          class="com.pdpsoft.security.GetActionsByGroupCommand"/>
+    <bean id="g16ProcessGetAllActionAsTreeCommand" scope="prototype"
+          class="com.pdpsoft.security.GetAllActionAsTreeCommand"/>
+    <bean id="g16ProcessViewGroupService" scope="prototype"
+          class="com.pdpsoft.security.DetailGroupService">
+        <property name="actionsByGroupCommand" ref="g16ProcessGetActionsByGroupCommand"/>
+        <property name="allActionsAsTreeCommand" ref="g16ProcessGetAllActionAsTreeCommand"/>
+    </bean>
+    <bean id="g16ProcessGetUserEntityWithRelatedGroupCommand" scope="prototype"
+          class="com.pdpsoft.security.GetUserEntityWithRelatedGroupCommand"/>
+    <bean id="g16ProcessParadiseAuthenticationAuthorizationService" scope="prototype"
+          class="com.pdpsoft.security.ParadiseAuthenticationAuthorizationService">
+        <description>
+            This is the Authentication and Authorization service
+        </description>
+        <property name="authentication" ref="preGetAllAuthenticationCriterionCommand" />
+        <property name="authorization" ref="g16ProcessAuthorizationCommand" />
+    </bean>
+</beans>

@@ -1,0 +1,430 @@
+<?xml version='1.0' encoding='utf-8'?>
+<errorDictionary>
+
+    <errorCatalog>
+        <errorKey>SucceedMessage</errorKey>
+        <errorId>999</errorId>
+        <errorDescription>The default action has been done successfully</errorDescription>
+        <customerKey>com.ashnaco.message.succeed</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>11000</errorId>
+        <errorDescription>licensenumber not for each utilizer</errorDescription>
+        <customerKey>com.ashnaco.g16.bundle.dcm.salerequest.sale.error.utilizernotdefine</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>11001</errorId>
+        <errorDescription>list of serial are not enough</errorDescription>
+        <customerKey>com.ashnaco.g16.bundle.dcm.salerequest.sale.error.serialnotenough</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>11002</errorId>
+        <errorDescription>serial number not define</errorDescription>
+        <customerKey>com.ashnaco.g16.bundle.dcm.salerequest.sale.error.serialnotdefine</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>11003</errorId>
+        <errorDescription>Sale not Persist</errorDescription>
+        <customerKey>com.ashnaco.g16.bundle.dcm.salerequest.sale.error.salenotpersist</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>1000</errorId>
+        <errorDescription>Unique Constraint</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.HIBERNATE_FINALIZATION_ERROR</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>1001</errorId>
+        <errorDescription>Unique Constraint</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.HIBERNATE_RETRIEVAL_ERROR</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>1002</errorId>
+        <errorDescription>Unique Constraint</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.HIBERNATE_STORAGE_ERROR</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>1003</errorId>
+        <errorDescription>Unique Constraint</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.HIBERNATE_INITIALIZATION_ERROR</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5500</errorId>
+        <errorDescription>Unique Constraint</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.CACHE_ERROR</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5510</errorId>
+        <errorDescription>should not happen</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.ID_GENERATOR_ERROR</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5520</errorId>
+        <errorDescription>Unique Constraint</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.JDBC_CONNECTION_ERROR</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5400</errorId>
+        <errorDescription>Unique Constraint</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.MAPPING_ERROR</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5401</errorId>
+        <errorDescription>Unique Constraint</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.PROPERTY_NOT_FOUND_ERROR</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5410</errorId>
+        <errorDescription>if a binary data field is not serializable</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.SERIALIZING_ERROR</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5420</errorId>
+        <errorDescription>no default constructor, or exception in default constructor</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.INSTANTIATION_ERROR</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5430</errorId>
+        <errorDescription>getter or setter is not public</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.PROPERTY_ACCESS_ERROR</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5300</errorId>
+        <errorDescription>Unique Constraint</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.HIBERNATE_CALLBACK_ERROR</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5310</errorId>
+        <errorDescription>Unique Constraint</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.VALIDATION_FAILURE</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5320</errorId>
+        <errorDescription>optimistic lockibng</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.STALE_OBJECT_STATE</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5330</errorId>
+        <errorDescription>no direct JDBC</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.SQL_GRAMMER_ERROR</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5200</errorId>
+        <errorDescription>more than one objects of the same type with same pk in a session</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.NON_UNIQUE_OBJECT</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5210</errorId>
+        <errorDescription>a query which must return unique, returns a list</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.NON_UNIQUE_RESULT</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5230</errorId>
+        <errorDescription>Unique Constraint</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.UNRESORVABLE_OBJECT</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5231</errorId>
+        <errorDescription>requested object is deleted in current session</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.OBJECT_DELETED</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5232</errorId>
+        <errorDescription>requested object is not found</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.OBJECT_NOT_FOUND</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5240</errorId>
+        <errorDescription>such as not null</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.PROPERTY_VALUE_ERROR</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5250</errorId>
+        <errorDescription>unique constraint, relation, ...</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.CONSTRAINT_VIOLATION_ERROR</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5100</errorId>
+        <errorDescription>object must be persistent</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.PERSISTENT_OBJECT</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5110</errorId>
+        <errorDescription>object must be transient</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.TRANSIENT_OBJECT</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5120</errorId>
+        <errorDescription>invalid HQL query</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.QUERY_ERROR</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5130</errorId>
+        <errorDescription>item locked on database</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.LOCKING_ERROR</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5140</errorId>
+        <errorDescription>error in hierarchical query</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.LOCKING_ERROR</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5000</errorId>
+        <errorDescription>unknown JDBC error - should not happen</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.JDBC_ERROR</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5001</errorId>
+        <errorDescription>unknown JDBC error</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.GENERIC_SQL_EXECEPTION</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>5010</errorId>
+        <errorDescription>error in transaction</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.TRANSACTION_ERROR</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+
+    <errorCatalog>
+        <errorKey>Errors</errorKey>
+        <errorId>888</errorId>
+        <errorDescription>ERROR</errorDescription>
+        <customerKey>Com.AshnaCo.G16.Bundle.CMS.exceptions.Errors</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+
+    <errorCatalog>
+        <errorKey>CMSErrors</errorKey>
+        <errorId>777</errorId>
+        <errorDescription>pan is not exist</errorDescription>
+        <customerKey>com.ashnaco.errors.DBErrors.HIBERNATE_RETRIEVAL_ERROR</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>PANReportErrors</errorKey>
+        <errorId>666</errorId>
+        <errorDescription>pan is not exist</errorDescription>
+        <customerKey>Com.AshnaCo.G16.Bundle.CMS.exceptions.cardholder.panIsNotExist</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>PANReportErrors</errorKey>
+        <errorId>555</errorId>
+        <errorDescription>pan is not exist</errorDescription>
+        <customerKey>Com.AshnaCo.G16.Bundle.exceptions.Errors</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>ConfigInputErrors</errorKey>
+        <errorId>-201</errorId>
+        <errorDescription>config parsing IO error</errorDescription>
+        <customerKey>Com.AshnaCo.G16.Bundle.CMS.exceptions.feedbackConfig.ConfigParsingIOError</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>ConfigInputErrors</errorKey>
+        <errorId>-202</errorId>
+        <errorDescription>config parsing parser SAX error</errorDescription>
+        <customerKey>Com.AshnaCo.G16.Bundle.CMS.exceptions.feedbackConfig.ConfigParsingSAXError</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>ConfigInputErrors</errorKey>
+        <errorId>-203</errorId>
+        <errorDescription>config parsing parser configuration error</errorDescription>
+        <customerKey>Com.AshnaCo.G16.Bundle.CMS.exceptions.feedbackConfig.ConfigParsingParserConfigurationError
+        </customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>ConfigInputErrors</errorKey>
+        <errorId>-204</errorId>
+        <errorDescription>config parsing card feedbacks error</errorDescription>
+        <customerKey>Com.AshnaCo.G16.Bundle.CMS.exceptions.feedbackConfig.ConfigParsingCardFeedbacksError</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <!--added by parisa-->
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>2022</errorId>
+        <errorDescription>no default constructor, or exception in default constructor</errorDescription>
+        <customerKey>com.ashnaco.g16.bundle.dcm.delivery.reportSaleReq.saleCodeWarning</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>3033</errorId>
+        <errorDescription>no default constructor, or exception in default constructor</errorDescription>
+        <customerKey>com.ashnaco.g16.bundle.dcm.delivery.reportSaleReq.saleCodeEnter</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+
+    <errorCatalog>
+        <errorKey>DBErrors</errorKey>
+        <errorId>4044</errorId>
+        <errorDescription>no default constructor, or exception in default constructor</errorDescription>
+        <customerKey>com.ashnaco.g16.bundle.dcm.delivery.reportSaleReq.saleReqResult</customerKey>
+        <technicalKey>null</technicalKey>
+        <destinationPage>error</destinationPage>
+    </errorCatalog>
+</errorDictionary>

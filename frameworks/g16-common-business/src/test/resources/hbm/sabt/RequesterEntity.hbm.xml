@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.sabt.RequesterEntity" table="SBT_REQUESTERS">
+        <id name="requesterId" type="java.lang.Integer">
+            <column name="REQUESTER_ID" />
+            <generator class="increment"/>
+        </id>
+
+        <property name="firstName" type="java.lang.String">
+            <column name="FIRST_NAME"/>
+        </property>
+        <property name="lastName" type="java.lang.String">
+            <column name="LAST_NAME"/>
+        </property>
+        <property name="fatherName" type="java.lang.String">
+            <column name="FATHER_NAME"/>
+        </property>
+        <property name="identifierCode" type="java.lang.String">
+            <column name="IDENTIFIER_CODE"/>
+        </property>
+        <property name="placeOfIssue" type="java.lang.String">
+            <column name="PLACE_OF_ISSUE"/>
+        </property>
+        <property name="birthDate" type="java.util.Date">
+            <column name="BIRTH_DATE"/>
+        </property>
+        <property name="nationalCode" type="java.lang.String">
+            <column name="NATIONAL_CODE"/>
+        </property>
+        <property name="qualification" type="java.lang.String">
+            <column name="QUALIFICATION"/>
+        </property>
+        <property name="qualificationMonthDuration" type="java.lang.Integer">
+            <column name="QUALIFICATION_MONTH"/>
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS"/>
+        </property>
+        <property name="phoneNo" type="java.lang.String">
+            <column name="PHONE_NO"/>
+        </property>
+        <property name="postalCode" type="java.lang.String">
+            <column name="POSTAL_CODE"/>
+        </property>
+
+        <property name="militaryStatus" type="java.lang.String">
+            <column name="MILITARY_SERVICE_STATUS"/>
+        </property>
+        <property name="maritalStatus" type="java.lang.String">
+            <column name="MARITAL_STATUS"/>
+        </property>
+        <property name="educationLevelStatus" type="java.lang.String">
+            <column name="EDUCATION_LEVEL_STATUS" />
+        </property>
+        <set name="khPlaceEntities" table="SBT_KHPLACES" cascade="save-update,persist" lazy="false" >
+            <key column="REQUESTER_ID"/>
+            <one-to-many class="com.apsg.samane.g16.sabt.KhPlaceEntity" />
+        </set>
+
+
+    </class>
+
+</hibernate-mapping>

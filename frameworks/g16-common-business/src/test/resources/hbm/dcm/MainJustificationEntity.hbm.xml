@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.dcm.MainJustificationEntity" table="DCM_MAINJUSTIFICATIONS">
+        <id name="mainJustificationId" type="java.lang.Integer" column="MAINJUSTIFICATION_ID">
+            <generator class="increment"/>
+        </id>
+
+        <property name="justificationCode" type="java.lang.String" column="MAINJUSTIFICATION_CODE"/>
+
+        <many-to-one name="regionEntity" column="REGION_ID"
+                     class="com.apsg.samane.g16.dcm.RegionEntity"/>
+
+        <set name="mainJustCatalogEntities" cascade="save-update,persist">
+            <key>
+                <column name="MAINJUSTIFICATION_ID"/>
+            </key>
+            <one-to-many class="com.apsg.samane.g16.dcm.MainJustCatalogEntity"/>
+        </set>
+
+        <joined-subclass name="com.apsg.samane.g16.dcm.SaleJustificationEntity"
+                         table="DCM_SALEJUSTIFICATIONS">
+            <key column="MAINJUSTIFICATION_ID"/>
+
+        </joined-subclass>
+
+        <joined-subclass name="com.apsg.samane.g16.dcm.SpecialJustificationEntity"
+                         table="DCM_SPECIALJUSTIFICATIONS">
+            <key column="MAINJUSTIFICATION_ID"/>
+
+            <property name="acceptorName" type="java.lang.String" column="ACCEPTOR_NAME"/>
+        </joined-subclass>
+
+        <joined-subclass name="com.apsg.samane.g16.dcm.UtilizerJustificationEntity"
+                         table="DCM_UTILIZERJUSTIFICATIONS">
+            <key column="MAINJUSTIFICATION_ID"/>
+
+            <set name="utilizerJustSenderRecieverEntities" cascade="save-update,persist">
+                <key>
+                    <column name="UTILIZERJUST_ID"/>
+                </key>
+                <one-to-many class="com.apsg.samane.g16.dcm.UtilizerJustSenderRecieverEntity"/>
+            </set>
+
+            <property name="networkName" type="java.lang.String" column="NETWORK_NAME"/>
+            <property name="networkResponsible" type="java.lang.String" column="NETWORK_RESPONSIBLE"/>
+            <property name="networkAddress" type="java.lang.String" column="NETWORK_ADDRESS"/>
+            <property name="licenseNo" type="java.lang.String" column="LICENSENO"/>
+            <property name="geographyState" type="java.lang.String" column="GEOGRAPHY_STATE"/>
+            <property name="geographyConfine" type="java.lang.String" column="GEOGRAPHY_CONFINE"/>
+            <property name="geographyWidth" type="java.lang.String" column="GEOGRAPHY_WIDTH"/>
+            <property name="geographyLength" type="java.lang.String" column="GEOGRAPHY_LENGTH"/>
+            <property name="stationNo" type="java.lang.Integer" column="STATIONNO"/>
+            <property name="licenseEnum" type="java.lang.Integer" column="LICENSE_ENUM"/>
+
+        </joined-subclass>
+
+    </class>
+</hibernate-mapping>

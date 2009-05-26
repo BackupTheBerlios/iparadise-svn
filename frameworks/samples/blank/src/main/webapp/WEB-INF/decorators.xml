@@ -1,0 +1,14 @@
+<decorators>
+
+  <!-- <decorator name="simple" page="/decorators/simple.jsp">
+    <pattern>*</pattern>
+  </decorator>
+  -->
+  
+  <decorator name="main" page="/decorators/Main.jsp">
+    <pattern>*</pattern>
+  </decorator>  
+   <decorator name="header" page="/decorators/Header.jsp"/>
+   <decorator name="footer" page="/decorators/Footer.jsp"/>
+   <decorator name="menu" page="/decorators/Menu.jsp"/>
+</decorators>

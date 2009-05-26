@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.dcm.InspectorRejectEntity" table="DCM_INSPECTORREJECTS">
+        
+        <composite-id>
+            <key-many-to-one name="rejectReasonEntity"
+                             class="com.apsg.samane.g16.dcm.RejectReasonEntity"
+                             column="REJECTREASON_ID"/>
+            <key-many-to-one name="inspectorReportEntity"
+                             class="com.apsg.samane.g16.dcm.InspectorReportEntity"
+                             column="INSPECTOR_ID"/>
+        </composite-id>
+
+        <property name="resolveFlag" type="java.lang.Integer" column="RESOLVE_FLAG" />
+        <property name="resultDate" type="java.util.Date" column="RESULT_DATE" />
+
+    </class>
+</hibernate-mapping>

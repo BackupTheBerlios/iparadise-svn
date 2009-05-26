@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.crm.CategoryEntity" table="CATEGORIES">
+        <id name="categoryEntityId" type="java.lang.Integer" column="CATEGORY_ID">
+            <generator class="increment"/>
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="CATEGORY_NAME" length="5" not-null="true"/>
+        </property>
+        <many-to-one name="master" class="com.apsg.samane.g16.crm.CategoryEntity"
+                     column="CATEGORY_PARENT_ID" update="true" insert="true"/>
+    </class>
+</hibernate-mapping>

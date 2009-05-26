@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.crm.PackageContentEntity" table="PACKAGE_CONTENT">
+        <id name="packageContentId" type="java.lang.Integer" column="PACKAE_CONTENT_ID">
+            <generator class="increment"/>
+        </id>
+        <property name="packageContenCount" type="java.lang.Integer" column="PACKAGE_CONTENT_COUNT"/>
+        <many-to-one name="shipmentItemEntity" class="com.apsg.samane.g16.crm.ShipmentItemEntity"
+                     column="SHIPMENT_ITEM_ID"/>
+        <many-to-one name="shipmentPackageEntity" class="com.apsg.samane.g16.crm.ShipmentPackageEntity"
+                     column="SHIPMENT_PACKAGE_ID"/>
+    </class>
+</hibernate-mapping>

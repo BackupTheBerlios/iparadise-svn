@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.dcm.BusinessReportEntity" table="DCM_BUSINESSREPORTS">
+        <id name="businessReportId" type="java.lang.Integer" column="BUSINESSREPORT_ID">
+            <generator class="increment"/>
+        </id>
+
+        <joined-subclass name="com.apsg.samane.g16.dcm.InspectorReportEntity"
+                         table="DCM_INSPECTORREPORTS">
+            <key column="BUSINESSREPORT_ID"/>
+
+            <set name="inspectorRejectEntities" cascade="save-update,persist">
+                <key>
+                    <column name="INSPECTOR_ID"/>
+                </key>
+
+                <one-to-many class="com.apsg.samane.g16.dcm.InspectorRejectEntity"/>
+            </set>
+
+            <joined-subclass name="com.apsg.samane.g16.dcm.DeliveryReportEntity"
+                             table="DCM_DELIVERY_REPORTS">
+                <key column="INSPECTOR_REPORT_ID"/>
+
+                <property name="deliveryReportDate" type="java.util.Date" column="DELIVERY_REPORT_DATE"/>
+
+                <one-to-one name="appointmentEntity"
+                            class="com.apsg.samane.g16.dcm.AppointmentEntity" cascade="save-update,persist"/>
+
+                <set name="deliverySenderEntities" cascade="save-update,persist">
+                    <key>
+                        <column name="DELIVERY_REPORT_ID"/>
+                    </key>
+                    <one-to-many class="com.apsg.samane.g16.dcm.DeliverySenderEntity"/>
+                </set>
+            </joined-subclass>
+
+            <joined-subclass name="com.apsg.samane.g16.dcm.WardenReportEntity"
+                             table="DCM_WARDENREPORTS">
+                <key column="INSPECTOR_REPORT_ID"/>
+                <property name="wardenFName" type="java.lang.String" column="WARDEN_FNAME"/>
+                <property name="wardenLName" type="java.lang.String" column="WARDEN_LNAME"/>
+                <property name="wardenDescription" type="java.lang.String" column="WARDEN_DES"/>
+                <property name="wardenDate" type="java.util.Date" column="WARDEN_DATE"/>
+                <property name="utilizerEnum" type="java.lang.Integer" column="UTILIZER_ENUM"/>
+                <many-to-one name="utilizerEntity" column="UTILIZER_ID"
+                             class="com.apsg.samane.g16.dcm.UtilizerEntity"/>
+            </joined-subclass>
+
+        </joined-subclass>
+
+        <joined-subclass name="com.apsg.samane.g16.dcm.ProductBasedReportEntity"
+                         table="DCM_PRODUCT_BASEDREPORTS">
+            <key column="BUSINESSREPORT_ID"/>
+            <many-to-one name="requestOrderEntity" column="REQUESTORDER_ID"
+                         class="com.apsg.samane.g16.dcm.RequestOrderEntity"/>
+
+            <joined-subclass name="com.apsg.samane.g16.dcm.TechnicianReportEntity"
+                             table="DCM_TECHNICIAN_REPORTS">
+                <key column="PRODUCTBASED_REPORT_ID"/>
+                <property name="technicianFName" type="java.lang.String" column="TECHNICIAN_FNAME"/>
+                <property name="technicianLName" type="java.lang.String" column="TECHNICIAN_LNAME"/>
+                <property name="technicianDescription" type="java.lang.String" column="TECHNICIAN_DES"/>
+                <property name="technicianReportDate" type="java.util.Date" column="TECHNICIANREPORT_DATE"/>
+            </joined-subclass>
+
+            <joined-subclass name="com.apsg.samane.g16.dcm.CustomDocumentEntity"
+                             table="DCM_CUSTOMDOCUMENTS">
+                <key column="PRODUCT_BASEDREPORT_ID"/>
+                <property name="cargoNo" type="java.lang.String" column="CARGO_NO"/>
+                <property name="cargoDate" type="java.util.Date" column="CARGO_DATE"/>
+                <property name="eraTestimonyNo" type="java.lang.String" column="ERATESTIMONY_NO"/>
+                <property name="eraTestimonyDate" type="java.util.Date" column="ERATESTIMONY_DATE"/>
+                <property name="declarationNo" type="java.lang.String" column="DECLARATION_NO"/>
+                <property name="declarationDate" type="java.util.Date" column="DECLARATION_DATE"/>
+                <property name="declarationDescription" type="java.lang.String" column="DECLARATION_DES"/>
+                <property name="customBillNo" type="java.lang.String" column="CUSTOMBILL_NO"/>
+                <property name="customBillDate" type="java.util.Date" column="CUSTOMBILL_DATE"/>
+                <property name="releaseFromNo" type="java.lang.String" column="RELEASEFROM_NO"/>
+                <property name="releaseFromDate" type="java.util.Date" column="RELEASEFROM_DATE"/>
+                <property name="factorNo" type="java.lang.String" column="FACTOR_NO"/>
+                <property name="factorDate" type="java.util.Date" column="FACTOR_DATE"/>
+                <property name="packingListNo" type="java.lang.String" column="PACKINGLIST_NO"/>
+                <property name="packingListDate" type="java.util.Date" column="PACKINGLIST_DATE"/>
+
+                <many-to-one name="regionEntity" column="REGION_ID"
+                             class="com.apsg.samane.g16.dcm.RegionEntity"/>
+            </joined-subclass>
+        </joined-subclass>
+
+    </class>
+</hibernate-mapping>

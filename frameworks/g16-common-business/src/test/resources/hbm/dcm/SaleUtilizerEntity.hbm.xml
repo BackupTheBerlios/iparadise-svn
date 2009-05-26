@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.dcm.SaleUtilizerEntity" table="DCM_SALE_UTILIZERS">
+
+        <id name="saleUtilizerId" type="java.lang.Integer" column="SALE_UTILIZER_ID">
+            <generator class="increment"/>
+        </id>
+
+        <many-to-one name="saleEntity"
+                     class="com.apsg.samane.g16.dcm.SaleEntity"
+                     column="SALE_ID"/>
+
+        <many-to-one name="utilizerEntity"
+                     class="com.apsg.samane.g16.dcm.UtilizerEntity"
+                     column="UTILIZER_ID"/>
+
+      <!--  <set name="serialNumberEntities" cascade="save-update,persist">
+            <key>
+                <column name="SALE_UTILIZER_ID"/>
+            </key>
+            <one-to-many class="com.apsg.samane.g16.dcm.SerialNumberEntity"/>
+        </set>-->
+
+    </class>
+</hibernate-mapping>

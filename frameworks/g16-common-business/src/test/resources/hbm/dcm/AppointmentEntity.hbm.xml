@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.dcm.AppointmentEntity" table="DCM_APPOINTMENTS">
+        <id name="appointmentId" type="java.lang.Integer" column="APPOINTMENT_ID">
+            <generator class="increment"/>
+        </id>
+
+        <property name="appointmentTime" type="java.lang.String" column="APPOINTMENT_TIME"/>
+        <property name="appointmentDate" type="java.util.Date" column="APPOINTMENT_DATE"/>
+
+        <many-to-one name="appointmentMaster" column="APPOINTMENT_PARENT_ID"
+                     class="com.apsg.samane.g16.dcm.AppointmentEntity"/>
+
+        <many-to-one name="saleEntity" column="SALE_ID"
+                     class="com.apsg.samane.g16.dcm.SaleEntity"/>
+
+        <many-to-one name="organizationTechnicianEntity" column="ORGPERSON_ID"
+                     class="com.apsg.samane.g16.dcm.OrganizationTechnicianEntity"/>
+
+        <one-to-one name="deliveryReportEntity"
+                            class="com.apsg.samane.g16.dcm.DeliveryReportEntity"
+                            cascade="save-update,persist"/>
+
+    </class>
+</hibernate-mapping>

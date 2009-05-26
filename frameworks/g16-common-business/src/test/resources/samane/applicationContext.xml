@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+    <bean id="g16Insert" scope="prototype"
+          class="com.pdpsoft.commonbiz.util.impl.InsertCommonBusinessCommand" />
+    <bean id="g16Persist" scope="prototype"
+          class="com.pdpsoft.commonbiz.util.impl.PersistCommonBusinessCommand" />
+    <bean id="g16Update" scope="prototype"
+          class="com.pdpsoft.commonbiz.util.impl.UpdateCommonBusinessCommand" />
+    <bean id="g16GetAll" scope="prototype"
+          class="com.pdpsoft.commonbiz.util.impl.GetAllCommonBusinessCommand" />
+    <bean id="g16FindByPrimaryKeyTypeOne" scope="prototype"
+          class="com.pdpsoft.commonbiz.util.impl.FindByPrimaryKeyTypeOneCommonBusinessCommand" />
+    <bean id="g16Remove" scope="prototype"
+          class="com.pdpsoft.commonbiz.util.impl.RemoveObjectCommonBusinessCommand" />
+
+
+
+
+    <!-- Just for TEST -->
+    <bean id="preGetAllFrameworkTest" scope="prototype"
+          class="com.pdpsoft.g16.apms.business.testcommands.GetAllFrameworkCriterion" />
+    <bean id="preInsertFrameworkTest" scope="prototype"
+          class="com.pdpsoft.g16.apms.business.testcommands.PreAddReturnFalse" />
+    <bean id="prePersistFrameworkTest" scope="prototype"
+          class="com.pdpsoft.g16.apms.business.testcommands.PreAddReturnFalse" />
+    <bean id="preRemoveFrameworkTest" scope="prototype"
+          class="com.pdpsoft.g16.apms.business.testcommands.PreAddReturnFalse" />
+    <bean id="g16ProcessFrameworkTest" scope="prototype"
+          class="com.pdpsoft.g16.apms.business.testcommands.TestProcess" />
+    <bean id="preProcessFrameworkTest" scope="prototype"
+          class="com.pdpsoft.g16.apms.business.testcommands.PreTestProcess" />
+    <!-- Just for TEST -->
+    
+</beans>

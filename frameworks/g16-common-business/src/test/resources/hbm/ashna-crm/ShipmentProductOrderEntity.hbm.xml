@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.crm.ShipmentProductOrderEntity" table="SHIPMENT_PRODUCTORDER">
+        <id name="shipmentProductOrderId" type="java.lang.Integer" column="SHIPMENT_PRODUCTORDER_ID">
+            <generator class="increment"/>
+        </id>
+        <property name="shipmentProductOrderCount" type="java.lang.Integer" column="SHIPMENT_PO_COUNT"/>
+        <many-to-one name="shipmentItemEntity" class="com.apsg.samane.g16.crm.ShipmentItemEntity"
+                     column="SHIPMENT_ITEM_ID"/>
+        <many-to-one name="productOrderEntity" class="com.apsg.samane.g16.crm.ProductOrderEntity"
+                     column="PRODUCT_ORDER_ID"/>
+    </class>
+</hibernate-mapping>

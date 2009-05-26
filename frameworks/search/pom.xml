@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>    
+    <name>G16 Security Package</name>
+    <url>http://www.ChrisShayan.com</url>
+    <groupId>com.chrisshayan.iparadise</groupId>
+    <artifactId>iParadise-search</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0</version>
+    <modules>
+    	<module>search-commons</module>
+    </modules>
+    <developers>
+        <developer>
+            <id/>
+            <name>Hasha</name>
+            <email>hamed.shayan@gmail.com</email>
+            <url>www.ChrisShayan.com</url>
+            <organization>iParadise</organization>
+            <organizationUrl>www.ChrisShayan.com</organizationUrl>
+            <roles/>
+        </developer>
+    </developers>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.crm.SupportedCitiesEntity" table="SUPPORTED_CITIES">
+        <id name="supportedCitiesEntityId" type="java.lang.Integer" column="SUPPORTED_CITIES_ID">
+            <generator class="increment"/>
+        </id>
+        <property name="officeCount" type="java.lang.Integer">
+            <column name="OFFICE_COUNT" />
+        </property>
+        <many-to-one name="cityEntity"
+                     column="CITY_ID"
+                     class="com.apsg.samane.g16.crm.CityEntity" />
+        <many-to-one name="resellerEntity"
+                     column="RESSELER_ID"
+                     class="com.apsg.samane.g16.organization.ResellerEntity" />
+    </class>
+</hibernate-mapping>

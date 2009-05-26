@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.dcm.CatalogEntity" table="DCM_CATALOGS">
+        <id name="catalogId" type="java.lang.Integer" column="CATALOG_ID">
+            <generator class="increment"/>
+        </id>
+        
+        <property name="catalogName" type="java.lang.String" column="CATALOG_NAME"/>
+        <property name="catalogMark" type="java.lang.String" column="CATALOG_MARK"/>
+        <property name="catalogModel" type="java.lang.String" column="CATALOG_MODEL"/>
+        <property name="catalogMadeByCountry" type="java.lang.String" column="CATALOG_MADEBYCOUNTRY"/>
+        <property name="catalogWeight" type="java.lang.String" column="CATALOG_WEIGHT"/>
+        <property name="catalogPrice" type="java.lang.String" column="CATALOG_PRICE"/>
+        <property name="catalogSpecNo" type="java.lang.String" column="CATALOG_SPECNO"/>
+
+        <many-to-one name="categoryEntity" column="CATEGORY_ID"
+                     class="com.apsg.samane.g16.crm.CategoryEntity"/>
+
+        <set name="releaseJustificationEntities" table="DCM_CATALOG_RELEASJUSTS" cascade="save-update,persist">
+            <key column="CATALOG_ID"/>
+            
+            <many-to-many class="com.apsg.samane.g16.dcm.ReleaseJustificationEntity" column="RELEASJUST_ID"/>
+        </set>
+
+        <joined-subclass name="com.apsg.samane.g16.dcm.GeneralCatalogEntity" table="DCM_GENERALCATALOGS">
+            <key column="CATALOG_ID"/>
+        </joined-subclass>
+
+        <joined-subclass name="com.apsg.samane.g16.dcm.ImportantCatalogEntity" table="DCM_IMPORTANTCATALOGS">
+            <key column="CATALOG_ID"/>
+
+            <joined-subclass name="com.apsg.samane.g16.dcm.SenderRecieverEntity" table="DCM_SENDERRECIEVERS">
+                <key column="IMPOR_CATALOG_ID"/>
+
+                <property name="senderRecieverEnum" type="java.lang.Integer" column="SENDER_RECIEVER_ENUM"/>
+            </joined-subclass>
+
+        </joined-subclass>
+
+    </class>
+</hibernate-mapping>

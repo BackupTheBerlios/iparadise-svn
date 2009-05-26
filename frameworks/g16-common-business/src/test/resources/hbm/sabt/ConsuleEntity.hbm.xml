@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.sabt.ConsuleEntity" table="SBT_CONSULES">
+        <id name="consuleId" type="java.lang.Integer">
+            <column name="CONSULE_ID" />
+            <generator class="increment"/>
+        </id>
+
+        <property name="voteDescription" type="java.lang.String">
+            <column name="VOTE_DESCRIPTION"/>
+        </property>
+        <property name="voteNumber" type="java.lang.String">
+            <column name="VOTE_NO"/>
+        </property>
+        <property name="voteDate" type="java.util.Date">
+            <column name="VOTE_DATE"/>
+        </property>
+
+    </class>
+
+</hibernate-mapping>

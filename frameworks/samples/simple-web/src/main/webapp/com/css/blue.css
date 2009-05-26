@@ -1,0 +1,741 @@
+table.logonform {
+    width: 500px;
+    border: 1px solid #999999;
+    direction: rtl;
+    background-color: #FFFFFF;
+    border-top-color: #CECFCE;
+    border-right-color: #CECFCE;
+    border-bottom-color: #CECFCE;
+    border-left-color: #CECFCE;
+}
+
+td.logonform {
+    background-color: #F2F4FF;
+    vertical-align: middle;
+    color: black;
+    font-size: 11px;
+    font-weight: bold;
+    border: 1px solid #999999;
+}
+
+.rightToLeft {
+    direction: rtl;
+}
+
+.logonmsg {
+    font-weight: normal;
+    font-size: 11px;
+    text-align: right;
+    direction: rtl;
+}
+
+.logonform A:link {
+    font-size: 10px;
+    text-decoration: underline;
+    color: #0033FF;
+    direction: rtl;
+}
+
+.logonform A:visited {
+    font-size: 10px;
+    text-decoration: underline;
+    direction: rtl;
+}
+
+.logonform A:active {
+    font-size: 10px;
+    text-decoration: underline;
+    direction: rtl;
+}
+
+.logonform A:hover {
+    font-size: 10px;
+    text-decoration: underline;
+    color: #000000;
+    direction: rtl;
+}
+
+.actionPanelItems {
+    vertical-align: top;
+    width: 100px;
+    direction: rtl;
+}
+
+.overview {
+    background-image: url( "../images/dash_bg1.gif" );
+    color: #FFFFFF;
+    text-align: right;
+    height: 21px;
+    width: 100%;
+    background-repeat: no-repeat;
+    font-weight: bold;
+    direction: rtl;
+}
+
+table.editform th {
+    text-align: right;
+    font-size: 11px;
+    padding: 4px;
+    height: 24px;
+    background-color: #f2f2f2;
+    border-bottom: solid 1px #999999;
+}
+
+table.editform tr td table tr td {
+    text-align: right;
+    font-size: 11px;
+    height: 24px;
+    border: solid 1px #999999;
+}
+
+table.searchform, table.actionpanel {
+    width: 100%;
+    direction: rtl;
+}
+
+th.actionpanel {
+    text-align: right;
+    border-bottom-color: #F7F3F7;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    direction: rtl;
+}
+
+table.editform tr td table tr td table tr td {
+    text-align: right;
+    border: none;
+    display: none;
+    direction: rtl;
+}
+
+table.editform, table.editswapform {
+    width: 600px;
+    float: right;
+    direction: rtl;
+}
+
+table.editform th {
+    text-align: right;
+    font-size: 11px;
+    padding: 4px;
+    height: 24px;
+    background-color: #f2f2f2;
+    border-bottom: solid 1px #999999;
+    direction: rtl;
+}
+
+table.editform tr td table tr td {
+    text-align: right;
+    font-size: 11px;
+    height: 24px;
+    border: solid 1px #999999;
+    direction: rtl;
+}
+
+table.editform tr td table tr td table tr td {
+    text-align: right;
+    border: none;
+    display: none;
+    direction: rtl;
+}
+
+/* fixes display for general forms */
+
+table.editform tr td table tr td table tr td.fixform {
+    text-align: right;
+    border: none;
+    display: table-cell;
+    direction: rtl;
+}
+
+* table.editform tr td table tr td table tr td.fixform {
+    text-align: right;
+    border: none;
+    display: inline-block;
+    direction: rtl;
+}
+
+table.editform tr td table tr td table tr td.fixform table tr td {
+    text-align: right;
+    font-size: 11px;
+    padding: 0px;
+    height: 24px;
+    border-bottom: solid 1px #999999;
+    display: table-cell;
+    direction: rtl;
+}
+
+* table.editform tr td table tr td table tr td.fixform table tr td {
+    text-align: right;
+    font-size: 11px;
+    padding: 0px;
+    height: 24px;
+    border-bottom: solid 1px #999999;
+    display: inline-block;
+    width: auto;
+    direction: rtl;
+}
+
+/* security roles manager */
+table.editformrole {
+    border: none;
+    display: table-cell;
+    padding: 0px;
+    width: 600px;
+}
+
+table.editformrole tr td div {
+    border: none;
+    padding: 0px;
+    width: auto;
+    display: table-cell;
+}
+
+table.editformrole tr td div table {
+    border: none;
+    padding: 0px;
+    width: 182px;
+}
+
+td.editform {
+    vertical-align: middle;
+    color: black;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+th.editform {
+    border: 1px solid #999999;
+    background-image: url( ../images/backgroundheader.jpg );
+    vertical-align: middle;
+    padding: 4px;
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: right;
+}
+
+th.logonform {
+    background-color: #f2f5ff;
+    vertical-align: middle;
+    padding: 4px;
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: right;
+}
+
+th.logonform {
+    border: 1px solid #666666;
+    background-image: url( ../images/backgroundheader.jpg );
+    font-size: 11px;
+    font-weight: bold;
+    font-family: Verdana, Arial, Helvetica, serif;
+    color: #000000;
+    height: 24px;
+}
+
+/* tree form */
+
+table.editform tr td table tr td table tr td.fixform table tr td.treeviewfix {
+    padding: 0px;
+    background-color: #f2f2f2;
+    direction: rtl;
+}
+
+table.editform tr td table tr td table tr td.fixform table tr td.treeviewfix table tr td {
+    border: none;
+    padding: 0px;
+    background-color: #f2f2f2;
+    direction: rtl;
+}
+
+.treeView {
+    background-color: #f7f6f7;
+    font-size: 11px;
+    direction: rtl;
+}
+
+table.gridform {
+    width: 100%;
+    background-color: #FFFFFF;
+}
+
+td.gridform {
+    width: 95%;
+    border: none;
+    font-size: 9px;
+}
+
+th.gridform {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* PAYMANNNNNNNNNNNN */
+
+/* product form */
+
+table.editform tr td table tr td table tr td.fixform table tr td.productviewfix {
+    padding: 0px;
+    border: none;
+}
+
+table.editform tr td table tr td table tr td.fixform table tr td.productviewfix table tr td {
+    border: none;
+    padding: 0px;
+}
+
+table.editform tr td table tr td table tr td.fixform table tr td.noborderinput {
+    width: 100%;
+    border: none;
+}
+
+table.editform tr td table tr td table tr td.fixform table tr td.noborderinput table tr td {
+    width: 100%;
+    padding-top: 14px;
+    border: none;
+}
+
+.swap {
+    background-color: cornflowerblue;
+    color: #FFFFFF;
+    direction: rtl;
+}
+
+.disabledSwap {
+    color: silver;
+}
+
+table.list1, td.searchform {
+    width: 95%;
+    direction: rtl;
+}
+
+table.reportpanel {
+    width: 100%;
+}
+
+/* input buttons */
+a.crumbs:link, a.crumbs:visited, a.crumbs:active, a.crumbs1:focus, a.crumbs:hover {
+    font-size: 10px;
+    color: #00309c;
+    text-decoration: underline;
+    direction: rtl;
+}
+
+a.navi_header:link, a.navi_header:visited, a.navi_header:active, a.navi_header:focus, a.navi_header:hover {
+    color: #636563;
+    font-size: 10;
+    font-weight: bold;
+    text-decoration: underline;
+    direction: rtl;
+}
+
+th.list1 table tr td, th.numberList1 table tr td {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+td.list1, td.list2, tr.report1, td.numberList2 {
+    background-color: #f2f2f2;
+    color: #000000;
+    vertical-align: middle;
+    font-size: 11px;
+    padding-left: 4px;
+}
+
+td.child1 {
+    background-color: #f2f2f2;
+    color: #333300;
+    vertical-align: middle;
+    font-size: 11px;
+    padding-left: 8px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+th.searchformlbl, a.searchformlbl {
+    margin-left: 4px;
+    font-size: 11px;
+    font-weight: normal;
+    direction: rtl;
+}
+
+.searchformlbl {
+    border: 0px;
+    direction: rtl;
+}
+
+.inputImage {
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    border-top-style: none;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    border: 0px;
+    text-align: right;
+}
+
+th.searchform {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: right;
+}
+
+td.searchform {
+    background-color: #f2f5ff;
+    font-size: 9px;
+}
+
+th.list1, table.report1 thead tr th, th.numberList1 {
+    border: solid 1px #999999;
+    background-image: url( ../images/backgroundheader.jpg );
+    vertical-align: middle;
+    color: black;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+a.list1:link, a.list1:visited, a.list1:active, a.list1:focus, a.list1:hover,
+    a.list2:link, a.list2:visited, a.list2:active, a.list2:focus, a.list2:hover,
+    a.child1:link, a.child1:visited, a.child1:active, a.child1:focus, a.child1:hover,
+    a.child2:link, a.child2:visited, a.child2:active, a.child2:focus, a.child2:hover,
+    a.numberList1:link, a.numberList1:visited, a.numberList1:active, a.numberList1:focus, a.numberList1:hover,
+    a.numberList2:link, a.numberList2:visited, a.numberList2:active, a.numberList2:focus, a.numberList2:hover {
+    color: #00309c;
+    text-decoration: underline;
+}
+
+.pagerStatus {
+    font-size: 11px;
+    text-align: right;
+    padding-right: 50px;
+    direction: rtl;
+}
+
+td.list2, tr.report2 {
+    background-color: #ffffff;
+}
+
+.pager {
+    color: #000000;
+    font-size: 11px;
+    text-decoration: none;
+    margin-left: 5px;
+    margin-right: 5px;
+    direction: rtl;
+}
+
+a.pager:link, a.pager:visited, a.pager:active, a.pager:focus, a.pager:hover {
+    color: #000000;
+    font-size: 11px;
+    text-decoration: underline;
+    margin-left: 5px;
+    margin-right: 5px;
+    direction: rtl;
+}
+
+th.pager {
+    font-weight: normal;
+    direction: rtl;
+}
+
+.error {
+    width: 95%;
+    border-top-color: rgb( 204, 204, 204 );
+    border-right-color: rgb( 204, 204, 204 );
+    border-bottom-color: rgb( 204, 204, 204 );
+    border-left-color: rgb( 204, 204, 204 );
+    background-color: #FFFBBD;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    color: #000000;
+    text-align: right;
+    font-size: 12px;
+}
+
+li.error {
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+}
+
+/* input buttons */
+/*
+table.reportSummary {
+  width: 100%;
+  background-color: #fff;
+  text-align: left;
+  font-weight: normal;
+}
+
+th.reportSummary {
+  text-align: left;
+  background-image: url( ../images/backgroundheader.jpg );
+}
+
+table.report1 {
+  width: 100%;
+}
+
+
+
+
+td.child2 {
+  background-color: #f2f2f2;
+  color: #333300;
+  vertical-align: middle;
+  font-size: 11px;
+  padding-left: 12px;
+  font-style: italic;
+}
+
+th.label {
+  padding-left: 4px;
+  font-size: 10px;
+  text-align: left;
+}
+
+
+th.reportpanel, th.reportpanelheader {
+  text-align: left;
+  background-image: url( ../images/backgroundheader.jpg );
+  border: 1px solid #999999;
+}
+
+table.reportpanel, table.reportpanelheader {
+  width: 95%;
+  border: none;
+}
+
+th.reportpanelheader {
+  height: 25px;
+  font-size: 16px;
+  color: #666666;
+}
+
+table.reportpanelheader {
+  margin-top: 50px;
+}
+
+table.reportpanel table {
+  border: none;
+  margin-top: 0px;
+}
+
+table.reportpanel td.reportpanel {
+  border: 1px solid #999999;
+}
+
+td.reportpanel table.reportpanel {
+  border: none;
+  margin-top: 0px;
+}
+
+table.reportpanel table.reportpanel td.reportpanel {
+  border: 1px solid #999999;
+}
+
+table.reportSummary td {
+  text-align: left;
+  font-size: 11px;
+  padding: 2px;
+  background-color: #f2f2f2;
+  border-bottom: solid 1px #999999;
+  font-weight: normal;
+}
+
+table.reportSummary th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: normal;
+}
+
+td.searchparamform {
+  font-weight: normal;
+  font-size: 10px;
+  text-align: center;
+}
+
+input, textarea {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  border-top-color: rgb( 204, 204, 204 );
+  border-right-color: rgb( 204, 204, 204 );
+  border-bottom-color: rgb( 204, 204, 204 );
+  border-left-color: rgb( 204, 204, 204 );
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  font-size: 12px;
+}
+
+input[type='image'] {
+  border-right-style: none;
+  border-bottom-style: none;
+  border-left-style: none;
+  border-top-style: none;
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  border: 0;
+}
+
+select {
+  border-top-color: rgb( 204, 204, 204 );
+  border-right-color: rgb( 204, 204, 204 );
+  border-bottom-color: rgb( 204, 204, 204 );
+  border-left-color: rgb( 204, 204, 204 );
+  background-color: rgb( 255, 255, 255 );
+  color: rgb( 0, 0, 0 );
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  font-size: 11px;
+}
+
+.error {
+  width: 95%;
+  border-top-color: rgb( 204, 204, 204 );
+  border-right-color: rgb( 204, 204, 204 );
+  border-bottom-color: rgb( 204, 204, 204 );
+  border-left-color: rgb( 204, 204, 204 );
+  background-color: #FFFBBD;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  color: #000000;
+  text-align: left;
+  font-size: 12px;
+}
+
+li.error {
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+}
+*/
+
+/*******************************
+*  background color to use to *
+*  display the errors         *
+******************************/
+/*
+td.error {
+  background-color: #FFFFFF;
+  color: #FF0000;
+  font-size: xx-small;
+}
+
+th.label, td.label, .label {
+  vertical-align: middle;
+  font-weight: normal;
+  font-size: 11px;
+}
+
+td.label {
+  text-align: left;
+}
+
+th.label {
+  width: 90px;
+  height: 14px;
+}
+
+input.label {
+  font-weight: normal;
+  vertical-align: middle;
+  text-align: left;
+  width: 120px;
+}
+
+th.disableLabel {
+  font-size: 10px;
+  text-align: left;
+}
+
+th.disableLabel, td.disableLabel, .disableLabel {
+  vertical-align: middle;
+  font-weight: normal;
+  font-size: 11px;
+}
+
+td.disableLabel {
+  text-align: left;
+}
+
+textarea.disableLabel, input.disableLabel {
+  font-weight: normal;
+  vertical-align: middle;
+  text-align: left;
+  background-color: #cccccc;
+}
+
+table.showhide {
+  width: 95%;
+  font-size: 9px;
+  font-weight: normal;
+}
+
+div.fixreportfilter table.showhide {
+  width: 100%;
+  font-size: 9px;
+  font-weight: normal;
+}
+
+* html div.fixreportfilter table.showhide {
+  width: 95%;
+  font-size: 9px;
+  font-weight: normal;
+}
+
+img {
+  border: 0;
+  border-right-width: 0;
+}
+*/
+
+/*Tab css*/
+/*
+.tab {
+  background-color: #ffffff;
+  font-size: 10px;
+  color: black;
+}
+
+a.tab:link, a.tab:visited, a.tab:hover, a.tab:focus, a.tab:active {
+  color: darkblue;
+}
+
+.allowedContentTypes {
+  font-size: 11px;
+}
+

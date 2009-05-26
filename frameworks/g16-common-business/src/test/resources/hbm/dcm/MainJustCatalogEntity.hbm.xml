@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.dcm.MainJustCatalogEntity" table="DCM_MAINJUST_CATALOGS">
+
+        <composite-id>
+            <key-many-to-one name="catalogEntity"
+                             class="com.apsg.samane.g16.dcm.CatalogEntity"
+                             column="CATALOG_ID"/>
+            <key-many-to-one name="mainJustificationEntity"
+                             class="com.apsg.samane.g16.dcm.MainJustificationEntity"
+                             column="MAINJUSTIFICATION_ID"/>
+        </composite-id>
+
+        <property name="mainJustCatalogCount" type="java.lang.Integer" column="MAINJUST_CATALOG_COUNT" />
+
+    </class>
+</hibernate-mapping>

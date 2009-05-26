@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.crm.ShipmentEntity" table="SHIPMENTS">
+        <id name="shipmentId" type="java.lang.Integer" column="SHIPMENT_ID">
+            <generator class="increment"/>
+        </id>
+        <property name="shipmentCode" type="java.lang.String">
+            <column name="SHIPMENT_CODE"/>
+        </property>
+        <property name="estimatedShipDate" type="java.util.Date">
+            <column name="ESTIMATED_SHIP_DATE"/>
+        </property>
+        <property name="estimatedReadyDate" type="java.util.Date">
+            <column name="ESTIMATED_READY_DATE"/>
+        </property>
+        <property name="estimatedArrivalDate" type="java.util.Date">
+            <column name="ESTIMATED_ARRIVAL_DATE"/>
+        </property>
+        <property name="estimatedShipCost" type="java.lang.Float">
+            <column name="ESTIMATED_SHIP_COST"/>
+        </property>
+        <property name="actualShipCost" type="java.lang.Float">
+            <column name="ACTUAL_SHIP_COST"/>
+        </property>
+        <property name="handlingInstruction" type="java.lang.String">
+            <column name="HANDLING_INSTRUCTION"/>
+        </property>
+        <many-to-one name="transportEntity" column="TRANSPORT_ID"
+                     class="com.apsg.samane.g16.crm.TransportEntity"/>
+        <many-to-one name="fromOrganizationEntity" column="FROM_ORGANIZATION_ID"
+                     class="com.apsg.samane.g16.organization.OrganizationEntity"/>
+        <many-to-one name="toOrganizationEntity" column="TO_ORGANIZATION_ID"
+                     class="com.apsg.samane.g16.organization.OrganizationEntity"/>
+        <many-to-one name="shipmentStatus" column="SHIPMENT_STATUS_ID"
+                     class="com.apsg.samane.g16.crm.ShipmentStatus"/>
+    </class>
+</hibernate-mapping>      

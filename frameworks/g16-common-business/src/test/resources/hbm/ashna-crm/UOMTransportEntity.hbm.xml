@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.crm.UOMTransportEntity" table="UOM_TRANSPORTS">
+        <id name="uomTransportId" type="java.lang.Integer" column="UOM_TRANSPORT_ID">
+            <generator class="increment"/>
+        </id>
+        <property name="cost" type="java.lang.Float" column="COST" />
+        <property name="insuranceCost" type="java.lang.Float" column="INSURANCE_COST" />
+        <many-to-one name="uomEntity" class="com.apsg.samane.g16.crm.UOMEntity" column="UOM_ID" />
+        <many-to-one name="transportEntity" class="com.apsg.samane.g16.crm.TransportEntity" column="TRANSPORT_ID" />
+        <property name="maximumTransfer" type="java.lang.Float">
+            <column name="MAX_TRANSFER" />
+        </property>
+    </class>
+</hibernate-mapping>

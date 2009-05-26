@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.sabt.KhCityEntity" table="SBT_KHCITIES">
+        <id name="khCityEntityId" type="java.lang.Integer" column="KHCITY_ID">
+            <generator class="increment"/>
+        </id>
+        <property name="cirty" type="java.lang.String" unique="true">
+            <column name="KHCITY_NAME"  />
+        </property>
+    </class>
+</hibernate-mapping>

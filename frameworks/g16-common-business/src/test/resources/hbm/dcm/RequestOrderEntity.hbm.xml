@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.dcm.RequestOrderEntity" table="DCM_REQUEST_ORDERS">
+        <id name="requestOrderId" type="java.lang.Integer" column="REQUEST_ORDER_ID">
+            <generator class="increment"/>
+        </id>
+        
+        <property name="requestOrderNo" type="java.lang.String" column="REQUEST_ORDER_NO"/>
+        <property name="requestOrderDate" type="java.util.Date" column="REQUEST_ORDER_DATE"/>
+        <property name="requestOrderExpireDate" type="java.util.Date" column="REQUEST_ORDER_EXPIREDATE"/>
+        <property name="vendorName" type="java.lang.String" column="VENDOR_NAME"/>
+        <property name="proformaNo" type="java.lang.String" column="PROFORMA_NO"/>
+        <property name="proformaDate" type="java.util.Date" column="PROFORMA_DATE"/>
+
+        <set name="catalogOrderEntities" cascade="save-update,persist">
+            <key>
+                <column name="REQUEST_ORDER_ID"/>
+            </key>
+            <one-to-many class="com.apsg.samane.g16.dcm.CatalogOrderEntity"/>
+        </set>
+
+        <set name="personEntities" table="DCM_REQUESTORDER_PERSONS">
+            <key column="REQUESTORDER_ID"/>
+            <many-to-many class="com.apsg.samane.g16.dcm.PersonEntity" column="PERSON_ID"/>
+        </set>
+
+    </class>
+</hibernate-mapping>

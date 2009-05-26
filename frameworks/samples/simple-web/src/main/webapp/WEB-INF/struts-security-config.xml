@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'utf-8'?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+        "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+    <form-beans>
+        <form-bean name="securityForm" type="com.pdpsoft.security.SecurityFormBean"/>
+    </form-beans>
+    <action-mappings>
+        <action path="/iParadise-security"
+                type="com.pdpsoft.security.SecurityAction"
+                parameter="reqCode"
+                name="securityForm"
+                scope="request"
+                >
+            <forward name="login-page" path="/pages/com/pdpsoft/security/applicationTemplateFrame.jsp" />
+        </action>
+    </action-mappings>
+
+</struts-config>

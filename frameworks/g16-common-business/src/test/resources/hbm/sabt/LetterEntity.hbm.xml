@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.sabt.LetterEntity" table="SBT_LETTERS">
+        <id name="letterEntityId" type="java.lang.Integer" column="SABT_LETTER_ID">
+            <generator class="increment"/>
+        </id>
+        <property name="letterNumber" type="java.lang.String" unique="true">
+            <column name="LETTER_NUMBER"/>
+        </property>
+        <property name="letterDate" type="java.util.Date">
+            <column name="LETTER_DATE"/>
+        </property>
+        <property name="fromLetter" type="java.lang.String">
+            <column name="FROM_LETTER"/>
+        </property>
+        <property name="toNameLetter" type="java.lang.String">
+            <column name="TO_NAME_LETTER"/>
+        </property>
+        <property name="toAddressLetter" type="java.lang.String">
+            <column name="TO_ADDRESS_LETTER"/>
+        </property>
+        <many-to-one name="requestEntity" column="REQUEST_ID"
+                     class="com.apsg.samane.g16.sabt.RequestEntity"/>
+        <joined-subclass name="com.apsg.samane.g16.sabt.InvitationLetterEntity"
+                         table="SBT_INVITATION_LETTERS">
+            <key column="SBT_LETTER_ID"/>
+            <property name="inviteDate" type="java.util.Date">
+                <column name="INVITE_DATE"/>
+            </property>
+        </joined-subclass>
+        <joined-subclass name="com.apsg.samane.g16.sabt.OrganizationalLetterEntity"
+                         table="SBT_ORGANIZATION_LETTER">
+            <key column="SBT_LETTER_ID"/>
+        </joined-subclass>
+        <joined-subclass name="com.apsg.samane.g16.sabt.ReturnLetterEntity"
+                         table="SBT_RETURN_LETTER">
+            <key column="SABT_LETTER_ID"/>
+            <many-to-one name="letterEntity" column="SABT_LETTER_ID_COMP"
+                         class="com.apsg.samane.g16.sabt.LetterEntity"/>
+        </joined-subclass>
+    </class>
+</hibernate-mapping>

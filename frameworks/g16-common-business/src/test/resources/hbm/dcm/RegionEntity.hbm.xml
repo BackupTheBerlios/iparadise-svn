@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.dcm.RegionEntity" table="DCM_REGIONS">
+        <id name="regionId" type="java.lang.Integer" column="REGION_ID">
+            <generator class="increment"/>
+        </id>
+            <property name="regionCode" type="java.lang.String" column="REGION_CODE"/>
+            <property name="regionName" type="java.lang.String" column="REGION_NAME"/>
+            <property name="managerFName" type="java.lang.String" column="MANAGER_FNAME"/>
+            <property name="managerLName" type="java.lang.String" column="MANAGER_LNAME"/>
+            <property name="regionlevel" type="java.lang.Integer" column="REGION_LEVEL"/>
+            <property name="regionPhone" type="java.lang.Integer" column="REGION_PHONE"/>
+            <property name="regionFax" type="java.lang.Integer" column="REGION_FAX"/>
+
+            <many-to-one name="regionMaster" column="REGION_PARENT_ID"
+                     class="com.apsg.samane.g16.dcm.RegionEntity"/>
+
+    </class>
+</hibernate-mapping>

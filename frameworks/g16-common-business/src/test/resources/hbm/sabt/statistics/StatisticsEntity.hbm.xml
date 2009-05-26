@@ -1,0 +1,356 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.sabt.statistics.StatisticsEntity" table="SBT_STATISTICS">
+        <id name="statisticsId" type="java.lang.Integer">
+            <column name="SBT_STATISTICS_ID"/>
+            <generator class="increment"/>
+        </id>
+
+        <property name="fromDate" type="java.util.Date">
+            <column name="FROM_DATE"/>
+        </property>
+        <property name="toDate" type="java.util.Date">
+            <column name="TO_DATE"/>
+        </property>
+        <property name="reportDate" type="java.util.Date">
+            <column name="REPORT_DATE"/>
+        </property>
+        <many-to-one name="khCityEntity" class="com.apsg.samane.g16.sabt.KhCityEntity"
+                     column="KHCITY_ID" />
+        
+        <joined-subclass name="com.apsg.samane.g16.sabt.statistics.AnnualStatisticsEntity"
+                         table="SBT_STATISTICS_ANNUAL">
+            <key column="SBT_STATISTICS_ID"/>
+            <joined-subclass name="com.apsg.samane.g16.sabt.statistics.OneThreeThreeStatisticsEntity"
+                             table="SBT_STATISTICS_133">
+                <key column="SBT_STATISTICS_ID"/>
+                <property name="ownershipDocumentCount" type="java.lang.Integer">
+                    <column name="OWNERSHIP_DOCUMENT_COUNT"/>
+                </property>
+                <property name="mapsFromBonyad" type="java.lang.Integer">
+                    <column name="MAPS_FROM_BONYAD"/>
+                </property>
+                <property name="mapsDiscreteComponentCount" type="java.lang.Integer">
+                    <column name="MAPS_DISCRETE_COMPONENT_COUNT"/>
+                </property>
+                <property name="lowCaseSixCount" type="java.lang.Integer">
+                    <column name="LOWCASE_SIX_COUNT"/>
+                </property>
+                <property name="lowCaseSevenCount" type="java.lang.Integer">
+                    <column name="LOWCASE_SEVEN_COUNT"/>
+                </property>
+                <property name="ownershipDocumentVoteCount" type="java.lang.Integer">
+                    <column name="OWNERSHIP_DOCUMENT_VOTE_COUNT"/>
+                </property>
+                <property name="discreteComponentsBonyad" type="java.lang.Integer">
+                    <column name="DISCRETE_COMPONENTS_BONYAD"/>
+                </property>
+                <property name="lowCaseOneFourtyCount" type="java.lang.Integer">
+                    <column name="LOWCASE_ONE_FOURTY_COUNT"/>
+                </property>
+            </joined-subclass>
+
+            <joined-subclass name="com.apsg.samane.g16.sabt.statistics.OneFourSevenStatisticsEntity"
+                             table="SBT_STATISTICS_147">
+                <key column="SBT_STATISTICS_ID"/>
+                <property name="consuleCount" type="java.lang.Integer">
+                    <column name="CONSULE_COUNT"/>
+                </property>
+                <property name="fiveStep" type="java.lang.Integer">
+                    <column name="FIVE_STEP"/>
+                </property>
+                <property name="operationAccept" type="java.lang.Integer">
+                    <column name="OPERATION_ACCEPT"/>
+                </property>
+                <property name="operationVoteAccept" type="java.lang.Integer">
+                    <column name="OPERATION_VOTE_ACCEPT"/>
+                </property>
+                <property name="operationVoteReject" type="java.lang.Integer">
+                    <column name="OPERATION_VOTE_REJECT"/>
+                </property>
+                <property name="operationAppointment" type="java.lang.Integer">
+                    <column name="OPERATION_APPOINTMENT"/>
+                </property>
+                <property name="remainFromOneToFive" type="java.lang.Integer">
+                    <column name="REMAIN_FROM_ONE_TO_FIVE"/>
+                </property>
+                <property name="retunedAppointment" type="java.lang.Integer">
+                    <column name="RETUNED_APPOINTMENT"/>
+                </property>
+                <property name="oneFourSevenCount" type="java.lang.Integer">
+                    <column name="ONE_FOUR_SEVEN_COUNT"/>
+                </property>
+                <property name="oneFourEightCount" type="java.lang.Integer">
+                    <column name="ONE_FOUR_EIGHT_COUNT"/>
+                </property>
+            </joined-subclass>
+
+        </joined-subclass>
+
+        <joined-subclass name="com.apsg.samane.g16.sabt.statistics.MonthlyStatisticsEntity"
+                         table="SBT_STATISTICS_MONTHLY">
+            <key column="SBT_STATISTICS_ID"/>
+
+            <joined-subclass name="com.apsg.samane.g16.sabt.statistics.IncomeStatisticsEntity"
+                             table="SBT_STATISTICS_INCOME">
+                <key column="SBT_STATISTICS_ID"/>
+                <property name="oneOne" type="java.lang.Float">
+                    <column name="ONE_ONE"/>
+                </property>
+                <property name="oneTwo" type="java.lang.Float">
+                    <column name="ONE_TWO"/>
+                </property>
+                <property name="twoOne" type="java.lang.Float">
+                    <column name="TWO_ONE"/>
+                </property>
+                <property name="twoTwo" type="java.lang.Float">
+                    <column name="TWO_TWO"/>
+                </property>
+                <property name="three" type="java.lang.Float">
+                    <column name="THREE"/>
+                </property>
+                <property name="four" type="java.lang.Float">
+                    <column name="FOUR"/>
+                </property>
+                <property name="five" type="java.lang.Float">
+                    <column name="FIVE"/>
+                </property>
+                <property name="six" type="java.lang.Float">
+                    <column name="SIX"/>
+                </property>
+                <property name="seven" type="java.lang.Float">
+                    <column name="SEVEN"/>
+                </property>
+                <property name="nine" type="java.lang.Float">
+                    <column name="NINE"/>
+                </property>
+                <property name="ten" type="java.lang.Float">
+                    <column name="TEN"/>
+                </property>
+                <property name="eleven" type="java.lang.Float">
+                    <column name="ELEVEN"/>
+                </property>
+                <property name="thirteen" type="java.lang.Float">
+                    <column name="THIRTEEN"/>
+                </property>
+            </joined-subclass>
+
+            <joined-subclass name="com.apsg.samane.g16.sabt.statistics.FileStatisticsEntity"
+                             table="SBT_STATISTICS_FILE">
+                <key column="SBT_STATISTICS_ID"/>
+                <property name="ownershipDocMoghatCount" type="java.lang.Integer">
+                    <column name="OWNERSHIP_DOC_MOGHAT_COUNT"/>
+                </property>
+                <property name="ownershipDocNatureCount" type="java.lang.Integer">
+                    <column name="OWNERSHIP_DOC_NATURE_COUNT"/>
+                </property>
+                <property name="ownershipDocAgricultureCount" type="java.lang.Integer">
+                    <column name="OWNERSHIP_DOC_AGRI_COUNT"/>
+                </property>
+                <property name="notProcessedOneThreeThreeCount" type="java.lang.Integer">
+                    <column name="NOT_PROCESSED_133_ONE"/>
+                </property>
+                <property name="notProcessedOneFourSevenCount" type="java.lang.Integer">
+                    <column name="NOT_PROCESSED_147_ONE"/>
+                </property>
+                <property name="processedOneThreeThreeCount" type="java.lang.Integer">
+                    <column name="PROCESSED_133_COUNT"/>
+                </property>
+            </joined-subclass>
+
+            <joined-subclass name="com.apsg.samane.g16.sabt.statistics.PerformanceStatisticsEntity"
+                             table="SBT_STATISTICS_PERFORMANCE">
+                <key column="SBT_STATISTICS_ID"/>
+                <property name="one" type="java.lang.Integer">
+                    <column name="ONE"/>
+                </property>
+                <property name="two" type="java.lang.Integer">
+                    <column name="TWO"/>
+                </property>
+                <property name="threeOne" type="java.lang.Integer">
+                    <column name="THREE_ONE"/>
+                </property>
+                <property name="threeTwo" type="java.lang.Integer">
+                    <column name="THREE_TWO"/>
+                </property>
+                <property name="threeThree" type="java.lang.Integer">
+                    <column name="THREE_THREE"/>
+                </property>
+                <property name="threeFour" type="java.lang.Integer">
+                    <column name="THREE_FOUR"/>
+                </property>
+                <property name="threeFive" type="java.lang.Integer">
+                    <column name="THREE_FIVE"/>
+                </property>
+                <property name="four" type="java.lang.Integer">
+                    <column name="FOUR"/>
+                </property>
+                <property name="fiveOne" type="java.lang.Integer">
+                    <column name="FIVE_ONE"/>
+                </property>
+                <property name="fiveTwo" type="java.lang.Integer">
+                    <column name="FIVE_TWO"/>
+                </property>
+                <property name="six" type="java.lang.Integer">
+                    <column name="SIX"/>
+                </property>
+                <property name="seven" type="java.lang.Integer">
+                    <column name="SEVEN"/>
+                </property>
+                <property name="eight" type="java.lang.Integer">
+                    <column name="EIGHT"/>
+                </property>
+                <property name="nineOne" type="java.lang.Integer">
+                    <column name="NINE_ONE"/>
+                </property>
+                <property name="nineTwo" type="java.lang.Integer">
+                    <column name="NINE_TWO"/>
+                </property>
+                <property name="tenOne" type="java.lang.Integer">
+                    <column name="TEN_ONE"/>
+                </property>
+                <property name="tenTwo" type="java.lang.Integer">
+                    <column name="TEN_TWO"/>
+                </property>
+                <property name="eleven" type="java.lang.Integer">
+                    <column name="ELEVEN"/>
+                </property>
+                <property name="twelve" type="java.lang.Integer">
+                    <column name="TWELVE"/>
+                </property>
+                <property name="thirteen" type="java.lang.Integer">
+                    <column name="THIRTEEN"/>
+                </property>
+                <property name="fourteen" type="java.lang.Integer">
+                    <column name="FOURTEEN"/>
+                </property>
+                <property name="fifteen" type="java.lang.Integer">
+                    <column name="FIFTEEN"/>
+                </property>
+                <property name="sixteen" type="java.lang.Integer">
+                    <column name="SIXTEEN"/>
+                </property>
+                <property name="seventeenOne" type="java.lang.Integer">
+                    <column name="SEVENTEEN_ONE"/>
+                </property>
+                <property name="seventeenTwo" type="java.lang.Integer">
+                    <column name="SEVENTEEN_TWO"/>
+                </property>
+                <property name="eighteen" type="java.lang.Integer">
+                    <column name="EIGHTEEN"/>
+                </property>
+                <property name="nineteen" type="java.lang.Integer">
+                    <column name="NINETEEN"/>
+                </property>
+                <property name="twenty" type="java.lang.Integer">
+                    <column name="TWENTY"/>
+                </property>
+                <property name="twentyone" type="java.lang.Integer">
+                    <column name="TWENTYONE"/>
+                </property>
+                <property name="twentytwo" type="java.lang.Integer">
+                    <column name="TWENTYTWO"/>
+                </property>
+                <property name="twentythree" type="java.lang.Integer">
+                    <column name="TWENTYTHREE"/>
+                </property>
+                <property name="twentyfour" type="java.lang.Integer">
+                    <column name="TWENTYFOUR"/>
+                </property>
+                <property name="twentyfive" type="java.lang.Integer">
+                    <column name="TWENTYFIVE"/>
+                </property>
+                <property name="twentysix" type="java.lang.Integer">
+                    <column name="TWENTYSIX"/>
+                </property>
+                <property name="twentyseven" type="java.lang.Integer">
+                    <column name="TWENTYSEVEN"/>
+                </property>
+                <property name="twentyeightOne" type="java.lang.Integer">
+                    <column name="TWENTYEIGHT_ONE"/>
+                </property>
+                <property name="twentyeightTwo" type="java.lang.Integer">
+                    <column name="TWENTYEIGHT_TWO"/>
+                </property>
+                <property name="twentynine" type="java.lang.Integer">
+                    <column name="TWENTYNINE"/>
+                </property>
+                <property name="thirty" type="java.lang.Integer">
+                    <column name="THIRTY"/>
+                </property>
+                <property name="thirtyone" type="java.lang.Integer">
+                    <column name="THIRTYONE"/>
+                </property>
+                <property name="thirtytwo" type="java.lang.Integer">
+                    <column name="THIRTYTWO"/>
+                </property>
+                <property name="thirtythree" type="java.lang.Integer">
+                    <column name="THIRTYTHREE"/>
+                </property>
+                <property name="thirtyfour" type="java.lang.Integer">
+                    <column name="THIRTYFOUR"/>
+                </property>
+                <property name="thirtyfiveOne" type="java.lang.Integer">
+                    <column name="THIRTYFIVE_ONE"/>
+                </property>
+                <property name="thirtyfiveTwo" type="java.lang.Integer">
+                    <column name="THIRTYFIVE_TWO"/>
+                </property>
+                <property name="thirtysixOne" type="java.lang.Integer">
+                    <column name="THIRTYSIX_ONE"/>
+                </property>
+                <property name="thirtysixTwo" type="java.lang.Integer">
+                    <column name="THIRTYSIX_TWO"/>
+                </property>
+                <property name="thirtyseven" type="java.lang.Integer">
+                    <column name="THIRTYSEVEN"/>
+                </property>
+                <property name="thirtyeight" type="java.lang.Integer">
+                    <column name="THIRTYEIGHT"/>
+                </property>
+                <property name="thirtynineOne" type="java.lang.Integer">
+                    <column name="THIRTYNINE_ONE"/>
+                </property>
+                <property name="thirtynineTwo" type="java.lang.Integer">
+                    <column name="THIRTYNINE_TWO"/>
+                </property>
+                <property name="thirtynineThree" type="java.lang.Integer">
+                    <column name="THIRTYNINE_THREE"/>
+                </property>
+                <property name="fourty" type="java.lang.Integer">
+                    <column name="FOURTY"/>
+                </property>
+                <property name="fourtyone" type="java.lang.Integer">
+                    <column name="FOURTYONE"/>
+                </property>
+                <property name="fourtytwo" type="java.lang.Integer">
+                    <column name="FOURTYTWO"/>
+                </property>
+                <property name="fourtythree" type="java.lang.Integer">
+                    <column name="FOURTYTHREE"/>
+                </property>
+                <property name="fourtyfour" type="java.lang.Integer">
+                    <column name="FOURTYFOUR"/>
+                </property>
+                <property name="fourtyfive" type="java.lang.Integer">
+                    <column name="FOURTYFIVE"/>
+                </property>
+                <property name="fourtysix" type="java.lang.Integer">
+                    <column name="FOURTYSIX"/>
+                </property>
+                <property name="fourtyseven" type="java.lang.Integer">
+                    <column name="FOURTYSEVEN"/>
+                </property>
+                <property name="fourtyeight" type="java.lang.Integer">
+                    <column name="FOURTYEIGHT"/>
+                </property>
+            </joined-subclass>
+
+        </joined-subclass>
+
+
+    </class>
+
+</hibernate-mapping>

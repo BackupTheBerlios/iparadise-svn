@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ <!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.hrm.PassportEntity" table="PASSPORT">
+        <id name="passportEntityId" type="java.lang.Integer">
+            <column name="PASSPORT_ID"/>
+            <generator class="increment"/>
+        </id>
+        
+        <many-to-one name="personResumeEntity" class="com.apsg.samane.g16.hrm.PersonResumeEntity" column="PERSON_RESUMES_ID"
+                     cascade="save-update,persist" />
+
+        <property name="issusedDate" type="java.lang.String">
+            <column name="ISSUSEDDATE"/>
+        </property>
+        <property name="dateOfExpiry" type="java.lang.String">
+            <column name="DATEOFEXPIRY"/>
+        </property>
+        <property name="passportNumber" type="java.lang.String">
+            <column name="PASSPORTNUMBER"/>
+        </property>
+
+    </class>
+
+
+</hibernate-mapping>

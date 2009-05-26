@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.sabt.RequestRankingEntity" table="SBT_REQUEST_RANKING">
+        <composite-id>
+            <key-many-to-one name="requestEntity"
+                             class="com.apsg.samane.g16.sabt.RequestEntity"
+                             column="REQUEST_ID"/>
+            <key-many-to-one name="rankingEntity"
+                             class="com.apsg.samane.g16.sabt.RankingEntity"
+                             column="RANKING_ID"/>
+        </composite-id>
+        <property name="recievingRanking" type="java.lang.Float" column="RECIEVING_RANKING" />
+        <property name="consultantProperty" type="java.lang.String" column="CONSULTANT_PROPERTY" />
+
+    </class>
+</hibernate-mapping>

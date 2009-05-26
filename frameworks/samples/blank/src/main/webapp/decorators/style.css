@@ -1,0 +1,43 @@
+.body, .title, .window, .header, .footer, .menu {
+	font-family: arial;
+	margin: 4;
+}
+
+.title {
+	background-color: #ffeeee;
+	font-size: 22px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.body {
+	background-color: #eeffee;
+	width: 100%;
+}
+
+.header {
+	background-color: #eeeeff;
+	width: 100%;
+}
+
+.window {
+	background-color: #eeeeff;
+	width: 300;
+}
+
+.window th {
+	text-align: left;
+	background-color: #ccccff;
+	font-size: 22px;
+	width: 300;
+}
+
+.footer {
+	background-color: #ffffee;
+	font-size: 9px;
+}
+
+.menu {
+	background-color: #ffffee;
+	font-size: 9px;
+}

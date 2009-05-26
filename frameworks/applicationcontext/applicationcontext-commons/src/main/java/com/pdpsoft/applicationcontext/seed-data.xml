@@ -1,0 +1,20 @@
+<?xml version='1.0'?>
+<application-data>
+    <dto fullQualifiedClassName="Customer">
+        <attribute propertyName="customerType">
+            <expression value="1" bundleKey="Haghighi"/>
+            <expression value="2" bundleKey="Hoghoghi"/>
+            <expression value="3" bundleKey="33333"/>
+        </attribute>
+        <attribute propertyName="type">
+            <expression value="1" bundleKey="Haghighi"/>
+            <expression value="2" bundleKey="Hoghoghi"/>
+        </attribute>
+    </dto>
+    <dto fullQualifiedClassName="Service">
+        <attribute propertyName="status">
+            <expression value="0" bundleKey="Active"/>
+            <expression value="1" bundleKey="Inactive"/>
+        </attribute>
+    </dto>
+</application-data>

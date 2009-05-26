@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.crm.ShipmentItemEntity" table="SHIPMENT_ITEM">
+        <id name="shipmentItemId" type="java.lang.Integer" column="SHIPMENT_ITEM_ID">
+            <generator class="increment"/>
+        </id>
+        <property name="shipmentCount" type="java.lang.Integer">
+            <column name="SHIPMENT_ITEM_COUNT"/>
+        </property>
+        <property name="shipmentItemCode" type="java.lang.String">
+            <column name="SHIPMENT_ITEM_CODE"/>
+        </property>
+        <property name="contentDescription" type="java.lang.String">
+            <column name="CONTENT_DESCRIPTION"/>
+        </property>
+        <many-to-one name="shipmentEntity" column="SHIPMENT_ID"
+                     class="com.apsg.samane.g16.crm.ShipmentEntity"/>
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@192.168.0.101:1521:orcl</property>
+        <property name="hibernate.connection.username">developer</property>
+        <property name="hibernate.connection.password">developer</property>
+
+        <property name="dialect">org.hibernate.dialect.Oracle9Dialect</property>
+        <property name="hibernate.max_fetch_depth">1</property>
+        <property name="show_sql">true</property>
+        <property name="use_outer_join">true</property>
+
+        <mapping resource="hbm/SystemUserEntity.hbm.xml"/>
+        <mapping resource="hbm/SystemGroupEntity.hbm.xml"/>
+        <mapping resource="hbm/SystemActionEntity.hbm.xml"/>
+        <mapping resource="hbm/UserActionEntity.hbm.xml"/>
+        <mapping resource="hbm/GroupActionEntity.hbm.xml"/>
+        <mapping resource="hbm/UserGroupEntity.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>

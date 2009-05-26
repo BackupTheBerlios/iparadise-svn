@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.crm.ProductEntity" table="PRODUCTS">
+        <id name="productEntityId" type="java.lang.Integer" column="PRODUCT_ID">
+            <generator class="increment"/>
+        </id>
+        <property name="partNumber" type="java.lang.String">
+            <column name="PART_NUMBER" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="PRODUCT_NAME" />
+        </property>
+        <property name="measurevalue" type="java.lang.Float">
+            <column name="MEASURE_VALUE" />
+        </property>
+        <many-to-one name="categoryEntity" class="com.apsg.samane.g16.crm.CategoryEntity"
+                     column="CATEGORY_ID" update="true" insert="true"/>
+        <many-to-one name="supplierEntity" class="com.apsg.samane.g16.organization.SupplierEntity"
+                     column="SUPPLIER_ID" update="true" insert="true"/>
+        <many-to-one name="uomEntity" class="com.apsg.samane.g16.crm.UOMEntity"
+                     column="UOM_ID" update="true" insert="true"/>
+
+        <!--set name="inventoryEntities" cascade="save-update">
+            <key>
+                <column name="INVENTORY_ID"/>
+            </key>
+            <one-to-many class="com.apsg.samane.g16.crm.InventoryEntity"/>
+        </set>
+        <set name="productPriceEntities" cascade="save-update">
+            <key>
+                <column name="PRODUCT_PRICE_ID"/>
+            </key>
+            <one-to-many class="com.apsg.samane.g16.crm.ProductPriceEntity"/>
+        </set-->
+
+    </class>
+</hibernate-mapping>

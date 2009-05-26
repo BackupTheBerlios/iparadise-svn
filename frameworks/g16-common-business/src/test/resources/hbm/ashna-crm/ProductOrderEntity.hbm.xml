@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.crm.ProductOrderEntity" table="PRODUCT_ORDERS">
+        <id name="productOrderId" type="java.lang.Integer" column="PRODUCT_ORDER_ID">
+            <generator class="increment"/>
+        </id>
+        <property name="partCount" type="java.lang.Integer" column="PART_COUNT" />
+        <many-to-one name="productEntity" class="com.apsg.samane.g16.crm.ProductEntity" column="PRODUCT_ID" />
+        <many-to-one name="orderEntity" class="com.apsg.samane.g16.crm.OrderEntity" column="ORDER_ID" />
+        <many-to-one name="statusEnum" class="com.apsg.samane.g16.crm.StatusEnum" column="STATUS_ID" />
+    </class>
+</hibernate-mapping>

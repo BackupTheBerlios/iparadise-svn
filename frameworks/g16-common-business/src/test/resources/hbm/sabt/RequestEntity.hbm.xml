@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.sabt.RequestEntity" table="SBT_REQUESTS">
+        <id name="requestId" type="java.lang.Integer">
+            <column name="SABT_REQUEST_ID"/>
+            <generator class="increment"/>
+        </id>
+
+        <property name="followingCode" type="java.lang.String">
+            <column name="FOLLOWING_CODE"/>
+        </property>
+        <property name="requestNumber" type="java.lang.String">
+            <column name="REQUEST_NUMBER"/>
+        </property>
+        <property name="totalPoint" type="java.lang.Float">
+        <column name="TOTAL_POINT"/>
+        </property>
+        <property name="requestDate" type="java.util.Date">
+            <column name="REQUEST_DATE"/>
+        </property>
+        <property name="certificationIssueDate" type="java.util.Date">
+            <column name="CERTIFICATION_ISSUE_DATE"/>
+        </property>
+        <property name="requestStatus" type="java.lang.String">
+            <column name="REQUEST_STATUS"/>
+        </property>
+        <many-to-one name="requesterEntity" class="com.apsg.samane.g16.sabt.RequesterEntity"
+                     column="REQUESTER_ID" cascade="save-update,persist"/>
+        <many-to-one name="consuleEntity" class="com.apsg.samane.g16.sabt.ConsuleEntity"
+                     column="CONSULE_ID" cascade="save-update,persist"/>
+        <set name="letterEntities" table="SBT_LETTERS" cascade="save-update,persist">
+            <key column="REQUEST_ID"/>
+            <one-to-many class="com.apsg.samane.g16.sabt.LetterEntity"/>
+        </set>
+        <set name="receiptEntities" table="SBT_RECEIPT" cascade="save-update,persist">
+            <key column="REQUEST_ID"/>
+            <one-to-many class="com.apsg.samane.g16.sabt.ReceiptEntity"/>
+        </set>
+
+        <joined-subclass name="com.apsg.samane.g16.sabt.CarBrokerRequestEntity"
+                         table="SBT_CAR_BROKER_REQUEST">
+            <key column="REQUEST_ID"/>
+        </joined-subclass>
+        <joined-subclass name="com.apsg.samane.g16.sabt.RealEstateRequestEntity"
+                         table="SBT_REAL_ESTATE_REQUESTS">
+            <key column="REQUEST_ID"/>
+            <joined-subclass name="com.apsg.samane.g16.sabt.SecondLevelRealEstateRequestEntity"
+                             table="SBT_S_REAL_ESTATE_REQUESTS">
+                <key column="REQUEST_ID"/>
+            </joined-subclass>
+            <joined-subclass name="com.apsg.samane.g16.sabt.FirstLevelRealEstateRequestEntity"
+                             table="SBT_F_REAL_ESTATE_REQUESTS">
+                <key column="REQUEST_ID"/>
+            </joined-subclass>
+        </joined-subclass>
+
+
+    </class>
+
+</hibernate-mapping>

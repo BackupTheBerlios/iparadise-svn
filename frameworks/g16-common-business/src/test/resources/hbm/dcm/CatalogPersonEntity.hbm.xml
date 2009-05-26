@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.dcm.CatalogPersonEntity" table="DCM_CATALOG_PERSONS">
+
+        <id name="catalogPersonId" type="java.lang.Integer" column="CATALOG_PERSON_ID">
+            <generator class="increment"/>
+        </id>
+
+        <many-to-one name="catalogEntity"
+                     class="com.apsg.samane.g16.dcm.CatalogEntity"
+                     column="CATALOG_ID"/>
+
+        <many-to-one name="personEntity"
+                     class="com.apsg.samane.g16.dcm.PersonEntity"
+                     column="PERSON_ID"/>
+        
+    </class>
+</hibernate-mapping>

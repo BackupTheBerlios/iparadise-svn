@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.dcm.PersonEntity" table="DCM_PERSONS">
+        <id name="personId" type="java.lang.Integer" column="PERSON_ID">
+            <generator class="increment"/>
+        </id>
+
+        <property name="personPhone" type="java.lang.Integer" column="PERSON_PHONE"/>
+        <property name="personCode" type="java.lang.String" column="PERSON_CODE"/>
+
+        <set name="personJustificationEntities" cascade="save-update,persist">
+            <key>
+                <column name="PERSON_ID"/>
+            </key>
+            <one-to-many class="com.apsg.samane.g16.dcm.PersonJustificationEntity"/>
+        </set>
+
+        <set name="catalogPersonEntities" cascade="save-update,persist">
+            <key column="PERSON_ID"/>
+            <one-to-many class="com.apsg.samane.g16.dcm.CatalogPersonEntity" />
+        </set>
+
+
+        <joined-subclass name="com.apsg.samane.g16.dcm.InformalPersonEntity"
+                         table="DCM_INFORMALPERSONS">
+            <key column="PERSON_ID"/>
+
+            <property name="informalPersonName" type="java.lang.String" column="INFORMAL_PER_NAME"/>
+            <property name="informalPersonAddress" type="java.lang.String" column="INFORMAL_PER_ADDRESS"/>
+        </joined-subclass>
+
+        <joined-subclass name="com.apsg.samane.g16.dcm.UtilizerEntity"
+                         table="DCM_UTILIZERS">
+            <key column="PERSON_ID"/>
+
+            <property name="utilizerName" type="java.lang.String" column="UTILIZER_NAME"/>
+            <property name="utilizerAddress" type="java.lang.String" column="UTILIZER_ADDRESS"/>
+        </joined-subclass>
+
+        <joined-subclass name="com.apsg.samane.g16.dcm.CompanyEntity"
+                         table="DCM_COMPANIES">
+            <key column="PERSON_ID"/>
+
+            <property name="companyName" type="java.lang.String" column="COMPANY_NAME"/>
+            <property name="companyManagerLName" type="java.lang.String" column="COMPANY_MANAGER_LNAME"/>
+            <property name="companyAddress" type="java.lang.String" column="COMPANY_ADDRESS"/>
+        </joined-subclass>
+
+        <joined-subclass name="com.apsg.samane.g16.dcm.OrganizationTechnicianEntity"
+                         table="DCM_ORGANIZATION_TECHNICIANS">
+            <key column="PERSON_ID"/>
+
+            <property name="technicianFName" type="java.lang.String" column="TECHNICIAN_FNAME"/>
+            <property name="technicianLName" type="java.lang.String" column="TECHNICIAN_LNAME"/>
+            <property name="technicianPosition" type="java.lang.String" column="TECHNICIAN_POSITION"/>
+            
+            <many-to-one name="regionEntity" column="REGION_ID"
+                         class="com.apsg.samane.g16.dcm.RegionEntity"/>
+
+        </joined-subclass>
+
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.dcm.UtilizerJustSenderRecieverEntity" table="DCM_UTILIZERJUST_SENDRECIEVES">
+
+        <composite-id>
+            <key-many-to-one name="senderRecieverEntity"
+                             class="com.apsg.samane.g16.dcm.SenderRecieverEntity"
+                             column="SENDERRECIEVER_ID"/>
+            <key-many-to-one name="utilizerJustificationEntity"
+                             class="com.apsg.samane.g16.dcm.UtilizerJustificationEntity"
+                             column="UTILIZERJUST_ID"/>
+        </composite-id>
+
+        <property name="utilizerJustSenderRecieverCount" type="java.lang.Integer" column="UTILIZERJUST_SENDRECIEVE_COUNT" />
+    </class>
+</hibernate-mapping>

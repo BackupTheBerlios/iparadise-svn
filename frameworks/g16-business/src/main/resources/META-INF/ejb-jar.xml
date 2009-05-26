@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ejb-jar PUBLIC '-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN' 'http://java.sun.com/dtd/ejb-jar_2_0.dtd'>
+<ejb-jar>
+    <enterprise-beans>
+
+        <session>
+            <ejb-name>EJBInvocatorSessionEJB</ejb-name>
+            <home>com.pdpsoft.business.sessionbean.EJBInvocatorSessionHome</home>
+            <remote>com.pdpsoft.business.sessionbean.EJBInvocatorSession</remote>
+            <local-home>com.pdpsoft.business.sessionbean.LocalEJBInvocatorSessionHome</local-home>
+            <local>com.pdpsoft.business.sessionbean.LocalEJBInvocatorSession</local>
+            <ejb-class>com.pdpsoft.business.sessionbean.EJBInvocatorSessionBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
+    </enterprise-beans>
+</ejb-jar>

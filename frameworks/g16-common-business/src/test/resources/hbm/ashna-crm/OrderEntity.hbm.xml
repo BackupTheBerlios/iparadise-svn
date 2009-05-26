@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.crm.OrderEntity" table="ORDERS">
+        <id name="orderId" type="java.lang.Integer" column="ORDER_ID">
+            <generator class="increment"/>
+        </id>
+        <property name="orderCode" type="java.lang.String" unique="true">
+            <column name="ORDER_CODE" length="10" />
+        </property>
+        <property name="orderDate" type="java.util.Date">
+            <column name="ORDER_DATE" />
+        </property>
+        <property name="actionDate" type="java.util.Date">
+            <column name="ACTION_DATE" />
+        </property>
+        <property name="creditFlag" type="java.lang.String">
+            <column name="CREDIT_FLAG" />
+        </property>
+        <property name="cargoBillNo" type="java.lang.String">
+            <column name="CARGO_BILL_NO" />
+        </property>
+        <many-to-one name="organizationEntity" column="ORGANIZATION_ID"
+                             class="com.apsg.samane.g16.organization.OrganizationEntity" />
+        <many-to-one name="voucherEntity" column="VOUCHER_ID"
+                             class="com.apsg.samane.g16.crm.VoucherEntity" cascade="save-update,persist"/>
+        <many-to-one name="transportEntity" column="TRANSPORT_ID"
+                             class="com.apsg.samane.g16.crm.TransportEntity"/>
+        <many-to-one name="paymentMethodEntity" column="PYMNT_MTHD_ID"
+                             class="com.apsg.samane.g16.crm.PaymentMethodEntity"/>
+
+        <many-to-one name="orderStatusEnum" column="ORDER_STATUS_ID"
+                             class="com.apsg.samane.g16.crm.OrderStatusEnum"/>
+
+         <set name="productOrderEntities" cascade="save-update,persist">
+             <key>
+                <column name = "ORDER_ID" />
+             </key>
+             <one-to-many class="com.apsg.samane.g16.crm.ProductOrderEntity"/>
+         </set>
+    </class>
+</hibernate-mapping>

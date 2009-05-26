@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+        "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+    <definition name="DefaultLayout" path="/pages/tiles-layouts/DefaultLayout.jsp">
+        <put name="header" value="/pages/tiles-layouts/header.jsp"/>
+        <put name="footer" value="/pages/tiles-layouts/footer.jsp"/>
+        <put name="body-content" value="/pages/tiles-layouts/body.jsp"/>
+    </definition>
+    <definition name="ApplicationLayout" path="/pages/tiles-layouts/DefaultLayout.jsp">
+        <put name="header" value="/pages/tiles-layouts/header.jsp"/>
+        <put name="footer" value="/pages/tiles-layouts/footer.jsp"/>
+        <put name="body-content" value="/pages/tiles-layouts/body.jsp"/>
+    </definition>
+    <definition name="BlankLayout" path="/pages/tiles-layouts/MenuLayout.jsp">
+        <put name="body-content" value="/pages/tiles-layouts/blank.jsp"/>
+    </definition>
+<!--
+    <definition name="SecurityLayout" extends="DefaultLayout">
+        <put name="header" value="/pages/tiles-layouts/simple_header.jsp"/>
+        <put name="body-content" value="/pages/tiles-layouts/blank.jsp"/>
+    </definition>
+    <definition name="Popup" path="/pages/tiles-layouts/EmptyLayout.jsp">
+        <put name="body-content" value="/pages/tiles-layouts/blank.jsp"/>
+    </definition>
+    <definition name="FrameLayout" path="/pages/tiles-layouts/FrameLayout.jsp">
+        <put name="body-content" value="/pages/tiles-layouts/blank.jsp"/>
+    </definition>
+-->
+</tiles-definitions>

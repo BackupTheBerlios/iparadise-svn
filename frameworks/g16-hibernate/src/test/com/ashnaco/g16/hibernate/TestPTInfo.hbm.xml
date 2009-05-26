@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.pdpsoft.hibernate.TestPTInfo"
+        table="mccsc.PT_INFO"
+        dynamic-update="true"
+        dynamic-insert="true">
+        
+        <composite-id>
+            <key-property
+                name="gsId"
+                column="GS_ID"
+            />
+            <key-property
+                name="ptId"
+                column="PT_ID"
+            />
+        </composite-id>
+        
+        <property
+            name="fuelSamId"
+            type="java.lang.String"
+            column="FUEL_SAM_ID"
+        />
+        <property
+            name="paySamId"
+            type="java.lang.String"
+            column="PAY_SAM_ID"
+        />
+        <property
+            name="fuelType"
+            type="java.lang.String"
+            column="FUEL_TYPE"
+        />
+        <property
+            name="ipcIpAddr"
+            type="java.lang.String"
+            column="IPC_IP_ADDR"
+        />
+        <property
+            name="ptIpAddr"
+            type="java.lang.String"
+            column="PT_IP_ADDR"
+        />
+        <property
+            name="nozzleId"
+            type="java.lang.String"
+            column="NOZZLE_ID"
+        />
+        <property
+            name="oilcanId"
+            type="java.lang.String"
+            column="OILCAN_ID"
+        />
+        <property
+            name="validity"
+            type="java.lang.String"
+            column="VALIDITY"
+        />
+        <property
+            name="initStatus"
+            type="java.lang.String"
+            column="INIT_STATUS"
+        />
+    </class>
+</hibernate-mapping>

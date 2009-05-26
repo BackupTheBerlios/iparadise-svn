@@ -1,0 +1,207 @@
+body {
+    margin: 0px;
+    background-color: #FFFFFF;
+}
+
+body, td, th {
+    font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #000000;
+}
+
+A, A:Visited, A:Active, A:Hover {
+    color: #999999;
+    text-decoration: none;
+}
+
+.textarea {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    color: #000000;
+    border: 1px solid #cccccc;
+    margin-left: 2px;
+    width: 120px;
+    height: 20px;
+    line-height: 15px;
+    text-align: left;
+
+}
+
+.layer {
+    border-color: #cccccc;
+    border-width: 1;
+    border-style: solid;
+    width: 700px;
+    position: absolute;
+    height: 200px;
+    z-index: 1;
+    overflow: auto;
+}
+
+/**
+* Calendar classes
+*/
+
+TD.CALENDRIER {
+    background-color: #C2C2C2;
+    font-weight: bold;
+    text-align: center;
+    font-size: 10px;
+    padding: 0px;
+    margin: 0px;
+    height: auto;
+    border: 0px;
+}
+
+DIV.CALENDRIER {
+    background-color: #C2C2C2;
+    font-weight: bold;
+    text-align: center;
+    font-size: 10px;
+    padding: 0px;
+    margin: 0px;
+    height: auto;
+    border: none;
+    float: left;
+    width: 36px;
+}
+
+A.CALENDRIER {
+    text-decoration: none;
+    color: #000000;
+    padding: 0px;
+    margin: 0px;
+    height: auto;
+    border: 0px;
+}
+
+.CALENDARBORDER {
+    background-color: #000000;
+    padding: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 0px;
+    height: auto;
+}
+
+.CALENDARTITLE {
+    background-color: #6B8ADE;
+    padding: 0px;
+    margin: 0px;
+    height: auto;
+    border: 0px;
+}
+
+.CALENDARWEEK {
+    background-color: #FFFFFF;
+    padding: 0px;
+    margin: 0px;
+    height: auto;
+    border: 0px;
+}
+
+.CALENDARWEEKEND {
+    background-color: #FFF4E5;
+    padding: 0px;
+    margin: 0px;
+    height: auto;
+    border: 0px;
+}
+
+.CALENDARSELECTED {
+    background-color: #FF8F01;
+    padding: 0px;
+    margin: 0px;
+    height: auto;
+    border: 0px;
+}
+
+#caltitre, #caltitre table, #caltitre tr, #caltitre td {
+    padding: 0px;
+    margin: 0px;
+    height: auto;
+    border: 0px;
+}
+
+/*/------------------------------------------------------------------\*/
+/*|                                                                  |*/
+/*|                      SUGGEST                    				 |*/
+/*|                                                                  |*/
+/*\------------------------------------------------------------------/*/
+
+div.suggestionList {
+    z-index: 500;
+    position: absolute;
+    width: 150px;
+    border: 1px solid #333333;
+    background-color: #ffffff;
+    font-family: Tahoma;
+    font-size: 11px;
+    cursor: default;
+    visibility: hidden;
+}
+
+div.suggestionList_element_off {
+    width: 148px;
+    background: #ffffff;
+    color: #333333;
+    padding-left: 2px;
+}
+
+div.suggestionList_element_on {
+    width: 148px;
+    background: #6D99C6;
+    color: #ffffff;
+    padding-left: 2px;
+}
+
+.ongletMain {
+    border-right: #80add6 2px solid;
+    border-top: medium none;
+    border-left: #80add6 2px solid;
+    border-bottom: #80add6 2px solid;
+    background-color: #ffffff;
+    width: 100px;
+    height: 0px;
+}
+
+.clsAction {
+    background-color: #ffffff;
+}
+
+.ongletTextEna {
+    border-top: #FFCB39 2px solid;
+    border-bottom: medium none;
+    background-color: #ffffff;
+    COLOR: #005386;
+    TEXT-ALIGN: center;
+    width: 100px;
+}
+
+.ongletTextDis {
+    border-right: #94A6B5 1px solid;
+    border-left: #94A6B5 1px solid;
+    border-top: #c5c5c5 1px solid;
+    border-bottom: #949A9C 2px solid;
+    background-color: #F7F7F7;
+    COLOR: #80add6;
+    TEXT-ALIGN: center;
+    width: 100px;
+}
+
+.ongletTextErr {
+    border-right: #c5c5c5 1px solid;
+    border-top: #c5c5c5 1px solid;
+    border-left: #c5c5c5 1px solid;
+    COLOR: #FFFFFF;
+    border-bottom: #80add6 2px solid;
+    BACKGROUND-COLOR: #ED4F50;
+    TEXT-ALIGN: center;
+}
+
+.ongletMiddle {
+}
+
+.ongletSpace {
+
+}

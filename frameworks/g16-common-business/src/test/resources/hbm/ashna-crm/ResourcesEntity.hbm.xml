@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.crm.ResourcesEntity" table="RESOURCES">
+        <id name="resourceEntityId" type="java.lang.Integer">
+            <column name="RESOURCES_ID" precision="10" scale="0"/>
+            <generator class="foreign">
+                <param name="property">resellerEntity</param>
+            </generator>
+        </id>
+        <one-to-one name="resellerEntity" class="com.apsg.samane.g16.organization.ResellerEntity"
+                    cascade="save-update,persist"/>
+        <property name="personnelCount" type="java.lang.Integer">
+            <column name="PERSONNEL_COUNT" />
+        </property>
+        <property name="sellerPersonnelCount" type="java.lang.Integer">
+            <column name="SELLER_PERSONNEL_COUNT" />
+        </property>
+        <property name="technicalSellerPersonnelCount" type="java.lang.Integer">
+            <column name="TECHNICAL_SELLER_COUNT" />
+        </property>
+        <property name="technicalPersonnelCount" type="java.lang.Integer">
+            <column name="TECHNICAL_PERSONNEL_COUNT" />
+        </property>
+        <property name="technicalQualifiedPersonnelCount" type="java.lang.Integer">
+            <column name="TECHNICAL_QUALIFIED_COUNT" />
+        </property>
+    </class>
+</hibernate-mapping>

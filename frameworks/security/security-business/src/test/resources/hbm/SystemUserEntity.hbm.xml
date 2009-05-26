@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.pdpsoft.security.SystemUserEntity" table="SYSTEM_USER">
+        <id name="systemUserId" type="java.lang.Integer">
+            <column name="SYSTEM_USER_PK" />
+            <generator class="increment"/>
+        </id>
+        <property name="firstName" type="java.lang.String">
+            <column name="USER_FIRST_NAME" />
+        </property>
+        <property name="surname" type="java.lang.String">
+            <column name="USER_SURNAME" />
+        </property>
+        <property name="userName" type="java.lang.String">
+            <column name="USER_NAME" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" />
+        </property>
+        <property name="status" type="java.lang.String">
+            <column name="STATUS" />
+        </property>
+
+        <!-- Relations goes here .... -->
+        <set name="userGroupEntities" inverse="true" >
+            <key column="SYSTEM_USER_PK" />
+            <one-to-many class="com.pdpsoft.security.UserGroupEntity" />
+        </set>
+        <set name="userActionEntities" inverse="true" >
+            <key column="SYSTEM_USER_PK" />
+            <one-to-many class="com.pdpsoft.security.UserActionEntity" />
+        </set>
+        <!-- Relations finished .... -->
+
+        <!--
+            As a pattern in PDPSoft, all tables ought to have these two coloumns,
+            hence developers should only copy these two mappings in all of their
+            hibernate mapping files.
+            1) userNameIdentifier : which is the username of the login user
+            2) actionDate : meanwhile an object Create-Update happens, it
+                            represents the time at which it was allocated.
+                            Hence no need to set any value.
+         -->
+        <property name="userNameIdentifier" type="java.lang.String">
+            <column name="USER_ID" />
+        </property>
+        <property name="actionDate" type="java.util.Date">
+            <column name="ACTIVITY_DATE" />
+        </property>
+
+    </class>
+</hibernate-mapping>

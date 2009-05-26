@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.dcm.SerialNumberEntity" table="DCM_SERIALS">
+        <id name="serialId" type="java.lang.Integer" column="SERIAL_ID">
+            <generator class="increment"/>
+        </id>
+
+        <property name="saleRequestEnum" type="java.lang.Integer" column="SALE_REQUEST_ENUM"/>
+        <property name="serialNo" type="java.lang.String" column="SERIALNO_ID"/>
+
+        <many-to-one name="catalogPersonEntity" column="CATALOG_PERSON_ID"
+                     class="com.apsg.samane.g16.dcm.CatalogPersonEntity"/>
+
+        <set name="serialLifeCycleEntities" cascade="save-update,persist">
+            <key>
+                <column name="SERIAL_ID"/>
+            </key>
+            <one-to-many class="com.apsg.samane.g16.dcm.SerialLifeCycleEntity"/>
+        </set>
+
+        <many-to-one name="saleUtilizerEntity" column="SALE_UTILIZER_ID"
+                     class="com.apsg.samane.g16.dcm.SaleUtilizerEntity"/>
+
+    </class>
+</hibernate-mapping>

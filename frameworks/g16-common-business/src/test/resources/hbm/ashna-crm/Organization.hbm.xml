@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.apsg.samane.g16.organization" default-access="field" auto-import="false">
+    <class name="com.apsg.samane.g16.organization.OrganizationEntity" table="ORGANIZATIONS_CRM">
+        <id name="organizationId" type="java.lang.Integer">
+            <column name="ORGANIZATION_ID"/>
+            <generator class="increment"/>
+        </id>
+
+        <joined-subclass name="com.apsg.samane.g16.organization.LegalOrganizationEntity"
+                         table="LEGAL_ORGANIZATIONS_CRM">
+            <key column="ORGANIZATION_ID"/>
+            <property name="name" type="java.lang.String">
+                <column name="ORGANIZATYION_NAME"/>
+            </property>
+            <property name="phoneNumber" type="java.lang.String">
+                <column name="PHONE_NUMBER"/>
+            </property>
+            <property name="faxNumber" type="java.lang.String">
+                <column name="FAX_NUMBER"/>
+            </property>
+            <property name="email" type="java.lang.String">
+                <column name="EMAIL"/>
+            </property>
+            <property name="address" type="java.lang.String">
+                <column name="ADDRESS"/>
+            </property>
+            <property name="website" type="java.lang.String">
+                <column name="WEBSITE"/>
+            </property>
+            <property name="establishedDate" type="java.util.Date">
+                <column name="ESTABLISHMET_DATE"/>
+            </property>
+            <property name="companyBusinessType" type="java.lang.String">
+                <column name="COMPANY_BUSINESS_TYPE"/>
+            </property>
+            <property name="asset" type="java.lang.Long">
+                <column name="ASSET"/>
+            </property>
+            <property name="companyIntroduction" type="java.lang.String">
+                <column name="COMPANY_INTRO"/>
+            </property>
+            <property name="ceoName" type="java.lang.String">
+                <column name="CEO_NAME"/>
+            </property>
+            <many-to-one name="cityEntity" column="CITY_ID"
+                         class="com.apsg.samane.g16.crm.CityEntity"/>
+            <many-to-one name="statusEnum" column="STATUS_ENUM_ID"
+                         class="com.apsg.samane.g16.crm.StatusEnum"/>
+            <joined-subclass name="com.apsg.samane.g16.organization.ResellerEntity"
+                             table="RESELLER">
+                <key column="ORGANIZATION_ID"/>
+                <many-to-one name="targetOrgsEmployeeCountEntity" column="TRGT_ORGS_EMPLY_CNT_ID"
+                             class="com.apsg.samane.g16.crm.TargetOrgsEmployeeCountEntity"/>
+                <one-to-one name="resellerDefinitionEntity"
+                            class="com.apsg.samane.g16.crm.ResellerDefinitionEntity"
+                            cascade="save-update,persist"/>
+                <one-to-one name="incomeEntity"
+                            class="com.apsg.samane.g16.crm.IncomeEntity"
+                            cascade="save-update,persist"/>
+                <one-to-one name="resourcesEntity"
+                            class="com.apsg.samane.g16.crm.ResourcesEntity"
+                            cascade="save-update,persist"/>
+                <one-to-one name="contactEntity"
+                            class="com.apsg.samane.g16.crm.ContactEntity"
+                            cascade="save-update,persist"/>
+                <set name="serviceTypeEntities" table="RESELLER_SERVICE_TYPE">
+                    <key column="RESELLER_ID"/>
+                    <many-to-many class="com.apsg.samane.g16.crm.ServiceTypeEntity"
+                                  column="SERVICE_TYPE_ID"/>
+                </set>
+                <set name="collaborationTypeEntities" table="RESELLER_COLLABORATION">
+                    <key column="RESELLER_ID"/>
+                    <many-to-many class="com.apsg.samane.g16.crm.CollaborationTypeEntity"
+                                  column="COLLABORATION_TYPE_ENTITY_ID"/>
+                </set>
+                <set name="targetMarketingTypeEntities" table="RESELLER_TARGET_MARKET">
+                    <key column="RESELLER_ID"/>
+                    <many-to-many class="com.apsg.samane.g16.crm.TargetMarketingTypeEntity"
+                                  column="TRGT_MRKTNG_TYP_ID"/>
+                </set>
+                <set name="productEntities" table="RESELLER_PRODUCT" lazy="false">
+                    <key column="RESELLER_ID"/>
+                    <many-to-many class="com.apsg.samane.g16.crm.ProductEntity"
+                                  column="PRODUCT_ID"/>
+                </set>
+
+
+            </joined-subclass>
+            <joined-subclass name="com.apsg.samane.g16.organization.SupplierEntity"
+                             table="SUPPLIERS">
+                <key column="ORGANIZATION_ID"/>
+                <property name="email" type="java.lang.String" column="EMAIL" />
+                <property name="contactName1" type="java.lang.String" column="CONTACT_NAME1" />
+                <property name="contactName2" type="java.lang.String" column="CONTACT_NAME2" />
+                <property name="contactEmail1" type="java.lang.String" column="CONTACT_EMAIL1" />
+                <property name="contactEmail2" type="java.lang.String" column="CONTACT_EMAIL2" />
+            </joined-subclass>
+
+        </joined-subclass>
+
+        <joined-subclass name="com.apsg.samane.g16.organization.InformalOrganizationEntity"
+                         table="INFORMAL_ORGANIZATIONS_CRM">
+
+            <key column="ORGANIZATION_ID"/>
+            <property name="name" type="java.lang.String">
+                <column name="NAME"/>
+            </property>
+            <property name="lastName" type="java.lang.String">
+                <column name="LAST_NAME"/>
+            </property>
+            <property name="gender" type="java.lang.String">
+                <column name="GENDER"/>
+            </property>
+            <property name="birthDate" type="java.util.Date">
+                <column name="BIRTHDATE"/>
+            </property>
+            <property name="mariageStatus" type="java.lang.String">
+                <column name="MARIAGE_STATUS"/>
+            </property>
+            <property name="email" type="java.lang.String">
+                <column name="EMAIL"/>
+            </property>
+            <property name="phoneNumber" type="java.lang.String">
+                <column name="PHONE_NUMBER"/>
+            </property>
+            <property name="address" type="java.lang.String">
+                <column name="ADDRESS"/>
+            </property>
+
+            <property name="nickName" type="java.lang.String">
+                <column name="NICKNAME"/>
+            </property>
+
+            <property name="image" type="serializable">
+                <column name="IMAGE" />
+            </property>
+
+            <one-to-one name="personResumeEntity" class="com.apsg.samane.g16.hrm.PersonResumeEntity"
+                        cascade="save-update,persist" /> 
+
+            <joined-subclass name="com.apsg.samane.g16.organization.BuyerEntity"
+                             table="BUYERS">
+                <key column="ORGANIZATION_ID"/>
+            </joined-subclass>
+
+        </joined-subclass>
+    </class>
+</hibernate-mapping>

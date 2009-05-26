@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<!--
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.hrm.ResumeLicense" table="RESUME_LICENSE">
+        <id name="resumeLicenseID" type="java.lang.Integer" column="RESUMELICENSE_ID">
+            <generator class="increment"/>
+        </id>
+        <property name=" score" type="java.lang.Float" column="SCORE" />
+        <property name="startDate" type="java.lang.String" column="STARTDATE" />
+        <property name="endDate" type="java.lang.String" column="ENDDATE" />
+        <many-to-one name="licenseEntity" class="com.apsg.samane.g16.hrm.LicenseEntity" column="LICENSE_ID" />
+        <many-to-one name="personResumeEntity" class="com.apsg.samane.g16.hrm.PersonResumeEntity" column="PERSON_RESUMES_ID" />
+       -->
+<!-- <property name="maximumTransfer" type="java.lang.Float">
+            <column name="MAX_TRANSFER" />
+        </property>-->
+<!--
+    </class>
+</hibernate-mapping>-->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.hrm.ResumeLicense" table="RESUME_LICENSE">
+        <composite-id>
+            <key-many-to-one name="licenseEntity"
+                             class="com.apsg.samane.g16.hrm.LicenseEntity"
+                             column="LICENSE_ID"/>
+            <key-many-to-one name="personResumeEntity"
+                             class="com.apsg.samane.g16.hrm.PersonResumeEntity"
+                             column="PERSON_RESUMES_ID"/>
+        </composite-id>
+        <property name="score" type="java.lang.Float">
+            <column name="SCORE" />
+        </property>
+        <property name="startDate" type="java.lang.String">
+            <column name="STARTDATE" />
+        </property>
+        <property name="endDate" type="java.lang.String">
+            <column name="ENDDATE" />
+        </property>
+
+    </class>
+</hibernate-mapping>
+

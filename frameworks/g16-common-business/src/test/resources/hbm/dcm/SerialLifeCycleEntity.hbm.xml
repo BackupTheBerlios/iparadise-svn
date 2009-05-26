@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.dcm.SerialLifeCycleEntity" table="DCM_CATALOG_LIFECYCLES">
+
+        <composite-id>
+            <key-many-to-one name="serialNumberEntity"
+                             class="com.apsg.samane.g16.dcm.SerialNumberEntity"
+                             column="CATALOG_ID"/>
+            <key-many-to-one name="productLifeCycleEntity"
+                             class="com.apsg.samane.g16.dcm.ProductLifeCycleEntity"
+                             column="PRODUCT_LIFECYCLE_ID"/>
+        </composite-id>
+
+        <property name="catalogLifeCycleFromDate" type="java.util.Date" column="CATALOG_LIFE_FROMDATE" />
+        <property name="catalogLifeCycleThruDate" type="java.util.Date" column="CATALOG_LIFE_THRUDATE" />
+
+    </class>
+</hibernate-mapping>

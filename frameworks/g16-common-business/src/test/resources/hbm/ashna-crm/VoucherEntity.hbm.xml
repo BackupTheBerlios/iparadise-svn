@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+        <hibernate-mapping>
+    <class name="com.apsg.samane.g16.crm.VoucherEntity" table="VOUCHER">
+        <id name="voucherId" type="java.lang.Integer" column="VOUCHER_ID">
+            <generator class="increment"/>
+        </id>
+        <property name="voucherCost" type="java.lang.Float">
+            <column name="VOUCHER_COST"/>
+        </property>
+        <property name="voucherDate" type="java.util.Date">
+            <column name="VOUCHER_DATE"  />
+        </property>
+    </class>
+        </hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.sabt.KhPlaceEntity" table="SBT_KHPLACES">
+        <id name="khplaceId" type="java.lang.Integer">
+            <column name="KHPLACE_ID" />
+            <generator class="increment"/>
+        </id>
+
+        <property name="squareAreaSize" type="java.lang.Float">
+            <column name="SQUARE_AREA_SIZE"/>
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS"/>
+        </property>
+        <property name="ownershipStatus" type="java.lang.String">
+            <column name="OWNERSHIP_STATUS"/>
+        </property>
+        <many-to-one name="khCityEntity" class="com.apsg.samane.g16.sabt.KhCityEntity"
+                     column="KHCITY_ID" update="true" insert="true" lazy="false"/>
+        <many-to-one name="requesterEntity" class="com.apsg.samane.g16.sabt.RequesterEntity"
+                     column="REQUESTER_ID" update="true" insert="true"/>
+
+    </class>
+
+</hibernate-mapping>

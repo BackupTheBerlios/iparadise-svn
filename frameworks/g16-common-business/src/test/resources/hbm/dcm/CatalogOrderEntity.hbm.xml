@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 14, 2006 2:31:58 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.dcm.CatalogOrderEntity" table="DCM_CATALOG_ORDERS">
+
+        <composite-id>
+            <key-many-to-one name="catalogEntity"
+                             class="com.apsg.samane.g16.dcm.CatalogEntity"
+                             column="CATALOG_ID"/>
+            <key-many-to-one name="requestOrderEntity"
+                             class="com.apsg.samane.g16.dcm.RequestOrderEntity"
+                             column="REQUEST_ORDER_ID"/>
+        </composite-id>
+
+        <property name="catalogOrderCount" type="java.lang.Integer" column="CATALOG_ORDER_COUNT" />
+        <property name="catalogOrderDescription" type="java.lang.String" column="CATALOG_ORDER_DES" />
+        <property name="releaseEnum" type="java.lang.Integer" column="RELEASE_ENUM"/>
+        
+    </class>
+    
+</hibernate-mapping>

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.apsg.samane.g16.hrm.PersonalEntity" table="PERSONAL">
+        <id name="personalId" type="java.lang.Integer">
+            <column name="PERSONAL_ID" precision="10" scale="0"/>
+            <generator class="increment"/>
+        </id>
+
+        <many-to-one name="cityEntity" column="CITY_ID" class="com.apsg.samane.g16.crm.CityEntity" />
+
+        <property name="nationalCode" type="java.lang.String">
+            <column name="NATIONAL_CODE"/>
+        </property>
+        <property name="smoker" type="java.lang.String">
+            <column name="SMOKER"/>
+        </property>
+        <property name="dateOfBirth" type="java.lang.String">
+            <column name="DATE_OF_BIRTH"/>
+        </property>
+        <property name="militaryServiceType" type="java.lang.Integer">
+            <column name="MILITARY_SERVICE"/>
+        </property>
+        <property name="genderType" type="java.lang.Integer">
+            <column name="GENDER"/>
+        </property>
+        <property name="maritalType" type="java.lang.Integer">
+            <column name="MARITAL" />
+        </property>
+        
+    </class>
+    
+</hibernate-mapping>

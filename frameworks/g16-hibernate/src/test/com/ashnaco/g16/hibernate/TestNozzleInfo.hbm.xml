@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.pdpsoft.hibernate.TestNozzleInfo"
+        table="mccsc.NOZZLE_INFO"
+        dynamic-update="true"
+        dynamic-insert="true">
+        
+        <composite-id>
+            <key-property
+                name="gsId"
+                column="GS_ID"
+            />
+            <key-property
+                name="nozzleId"
+                column="NOZZLE_ID"
+            />
+        </composite-id>
+        
+        <property
+            name="nozzleName"
+            type="java.lang.String"
+            column="NOZZLE_NAME"
+        />
+        <property
+            name="oilCanId"
+            type="java.lang.String"
+            column="OILCAN_ID"
+        />
+        <property
+            name="state"
+            type="java.lang.String"
+            column="STATE"
+        />
+        <property
+            name="initStatus"
+            type="java.lang.String"
+            column="INIT_STATUS"
+        />
+    </class>
+</hibernate-mapping>

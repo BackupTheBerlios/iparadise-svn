@@ -12,6 +12,7 @@ import org.hibernate.id.IdentifierGenerationException;
 import org.hibernate.type.EntityType;
 import org.hibernate.type.SerializationException;
 import org.hibernate.type.Type;
+import com.pdpsoft.security.LoginModuleContextHolder;
 
 /**
  * @author hasha
@@ -35,10 +36,27 @@ public final class HibernateUtility {
 
     public static void createFactory() {
         Configuration cfg = new Configuration();
-        cfg.configure(CONFIGURATION_FILE);
+        configuration(cfg);
+
 
         sessionFactory = cfg.buildSessionFactory();
         logger.info("SessionFactory created.");
+    }
+
+    /**
+     * configure the hibernate
+     * @param cfg instance of Configuration
+     */
+    private static void configuration(Configuration cfg) {
+        // if there was not any specific hibernate configuration hence we use default
+        final String configurationName = LoginModuleContextHolder.getHibernateConfigurationName();
+        if(configurationName == null) {
+            logger.info(CONFIGURATION_FILE + " is initializing the database!!!");
+            cfg.configure(CONFIGURATION_FILE);
+        } else {
+            logger.info(configurationName + " is initializing the database!!!");
+            cfg.configure(configurationName);
+        }
     }
 
     private static SessionFactory getValidSessionFactory() {
@@ -58,7 +76,11 @@ public final class HibernateUtility {
                     //failed to close the session, may be already closed.
                 }
             }
-            session = getValidSessionFactory().openSession();
+            /*
+                Try to use multi database
+                TODO: I should handle different multi database
+             */
+            session = getValidSessionFactory().openSession(new PadidpardazHibernateMultiDatabaseInterceptor());
             logger.debug("Session created");
             sessionThreadLocal.set(session);
         }
@@ -122,6 +144,7 @@ public final class HibernateUtility {
         }
     }
 
+    @SuppressWarnings({"unchecked"})
     public static void setSessionByFilter(boolean b) {
         sessionByFilterThreadLocal.set(b);
     }
@@ -148,6 +171,7 @@ public final class HibernateUtility {
     }
 
 
+    @SuppressWarnings("ThrowableInstanceNeverThrown")
     public static HibernateEXC translateException(HibernateException e) {
         if (e == null) {
             return null;

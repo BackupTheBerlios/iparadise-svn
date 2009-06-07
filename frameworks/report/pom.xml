@@ -1,32 +1,25 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>    
-    <name>G16 Web Package</name>
+    <name>G16 iParadise Report</name>
     <url>http://www.ashnaco.com</url>
     <groupId>com.chrisshayan.iparadise</groupId>
-    <artifactId>iParadise</artifactId>
+    <artifactId>iParadise-report</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
     <modules>
-    	<module>g16-business</module>
-    	<module>g16-business-facade</module>
-    	<module>g16-common-business</module>
-    	<module>G16-Commons</module>
-    	<module>g16-hibernate</module>
-    	<module>g16-web</module>
-    	<module>security</module>
-    	<module>search</module>
-    	<module>applicationcontext</module>
-    	<module>report</module>
+    	<module>report-commons</module>
+    	<module>report-web</module>
+    	<module>report-business</module>
     </modules>
     <developers>
         <developer>
             <id/>
             <name>Hasha</name>
             <email>hamed.shayan@gmail.com</email>
-            <url>www.hamedshayan.com</url>
-            <organization>ashnaco</organization>
-            <organizationUrl>www.ashnaco.com</organizationUrl>
+            <url>www.ChrisShayan.com</url>
+            <organization>iParadise</organization>
+            <organizationUrl>www.ChrisShayan.com</organizationUrl>
             <roles/>
         </developer>
     </developers>

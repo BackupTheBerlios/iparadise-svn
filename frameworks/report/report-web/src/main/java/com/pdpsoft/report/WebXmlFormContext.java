@@ -10,9 +10,11 @@ import java.io.InputStream;
 import java.util.Map;
 import java.util.Set;
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 import com.pdpsoft.commons.ResourceLocator;
 import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JRDesignReportFont;
 
 /**
  * Created by IntelliJ IDEA.
@@ -22,6 +24,8 @@ import net.sf.jasperreports.engine.*;
  */
 public abstract class WebXmlFormContext {
     private final static Log LOG = LogFactory.getLog(WebXmlFormContext.class);
+
+    private static Map<String, JasperReport> jasperReportCache = new ConcurrentHashMap<String, JasperReport>();
 
     /**
      * this is the method that will handle the export of the form
@@ -37,13 +41,27 @@ public abstract class WebXmlFormContext {
             if(LOG.isDebugEnabled())
                 debug(map);
 
-            if(LOG.isInfoEnabled())
-                debug(map);
             InputStream stream = ResourceLocator.getResourceAsStream(customEntity.getFilePath());
 
-            JasperRunManager.runReportToPdfStream(stream, outputStream, map);
+            JasperReport report = null;
+            final String id = customEntity.getId();
+            if(jasperReportCache.containsKey(id)) {
+                report = jasperReportCache.get(id);
+            } else {
+                report = JasperCompileManager.compileReport(stream);
+                jasperReportCache.put(id, report);
+            }
+
+            JasperPrint print = JasperFillManager.fillReport(
+                    report,
+                    map,
+                    new JREmptyDataSource()
+            );
+
+            JasperExportManager.exportReportToPdfStream(print, outputStream);
 
             response.setContentType("application/pdf");
+            response.setHeader("Content-Disposition", "attachment;filename=".concat(id));
             outputStream.flush();
             outputStream.close();
         } catch (IOException e) {
@@ -83,6 +101,6 @@ public abstract class WebXmlFormContext {
                 map,
                 new JREmptyDataSource()
         );
-        JasperExportManager.exportReportToPdfFile(print, "c:\\hamed.pdf");
+        JasperExportManager.exportReportToPdfFile(print, "C:\\Java\\tools\\jasper\\resideSabteDarkhast\\ad.pdf");
     }
 }

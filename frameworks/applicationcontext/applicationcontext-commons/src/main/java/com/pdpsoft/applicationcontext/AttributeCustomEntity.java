@@ -30,10 +30,12 @@ public class AttributeCustomEntity extends G16ParentCustomEntity {
         the value of map is bundleKey.
      */
     Map<String, String> map;
+    Map<String, String> sort;
 
 
     public AttributeCustomEntity() {
         map = new HashMap<String, String>();
+        sort = new HashMap<String, String>();
     }
 
     public AttributeCustomEntity(String propertyName, Map<String, String> map) {
@@ -57,10 +59,19 @@ public class AttributeCustomEntity extends G16ParentCustomEntity {
         this.map = map;
     }
 
-    public void addMap(String value, String bundleKey) {
+    public Map<String, String> getSort() {
+        return sort;
+    }
+
+    public void setSort(Map<String, String> sort) {
+        this.sort = sort;
+    }
+
+    public void addMap(String value, String bundleKey, String sortItem) {
         if(map.containsKey(value))
             throw new RuntimeException("There is dublicate in your application context data xml file, the value is:" + value
             + " and the bundlekey is:" + bundleKey + ". The property is:" + propertyName);
         map.put(value, bundleKey);
+        sort.put(value, sortItem);
     }
 }

@@ -31,8 +31,8 @@ public final class HibernateUtility {
     private static final ThreadLocal<Session> sessionThreadLocal = new ThreadLocal<Session>();
     private static final ThreadLocal<Transaction> transactionThreadLocal =
             new ThreadLocal<Transaction>();
-    private static final ThreadLocal sessionByFilterThreadLocal =
-            new ThreadLocal();
+    private static final ThreadLocal sessionByFilterThreadLocal = new ThreadLocal();
+    private static final ThreadLocal<Boolean> conversation = new ThreadLocal<Boolean>();
 
     public static void createFactory() {
         Configuration cfg = new Configuration();
@@ -80,7 +80,8 @@ public final class HibernateUtility {
                 Try to use multi database
                 TODO: I should handle different multi database
              */
-            session = getValidSessionFactory().openSession(new PadidpardazHibernateMultiDatabaseInterceptor());
+            //session = getValidSessionFactory().openSession(new PadidpardazHibernateMultiDatabaseInterceptor());
+            session = getValidSessionFactory().openSession();
             logger.debug("Session created");
             sessionThreadLocal.set(session);
         }
@@ -102,6 +103,7 @@ public final class HibernateUtility {
     }
 
     public static void commitTransaction() throws HibernateException {
+        setConversation(false);
         Transaction transaction = transactionThreadLocal.get();
         if (transaction != null) {
             transaction.commit();
@@ -121,6 +123,7 @@ public final class HibernateUtility {
     }
 
     public static void rollbackTransaction() throws HibernateException {
+        setConversation(false);
         Transaction transaction = transactionThreadLocal.get();
         if (transaction != null) {
             transaction.rollback();
@@ -152,6 +155,37 @@ public final class HibernateUtility {
     public static boolean isSessionByFilter() {
         Boolean b = (Boolean) sessionByFilterThreadLocal.get();
         return b != null && b;
+    }
+
+    public static void setConversation(boolean value) {
+        conversation.set(value);
+        setSessionByFilter(value);
+    }
+    
+    public static boolean isConversation() {
+        final Boolean aBoolean = conversation.get();
+        return aBoolean != null && aBoolean;
+    }
+
+    public static void conversationCompleted() throws HibernateEXC {
+        try {
+            HibernateUtility.commitTransaction();
+        } catch (HibernateException e) {
+            try {
+                if(!HibernateUtility.isConversation())
+                    HibernateUtility.rollbackTransaction();
+            } catch (HibernateException he) {
+                throw HibernateUtility.translateException(e);
+            }
+            logger.error(e, e);
+            throw HibernateUtility.translateException(e);
+        } finally {
+            setConversation(false);
+            if (!HibernateUtility.isSessionByFilter()) {
+                HibernateUtility.closeSession();
+            }
+        }
+
     }
 
     public static void main(String[] args) {

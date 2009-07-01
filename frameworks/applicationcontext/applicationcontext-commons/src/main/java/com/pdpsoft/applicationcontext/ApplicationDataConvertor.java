@@ -17,18 +17,29 @@ public class ApplicationDataConvertor {
     /**
      * Convert a map to List of ApplicationContextDataCustomEntity
      * @param map the parameter
+     * @param sort the sorted map
      * @return an instance of List<ApplicationContextDataCustomEntity>
      */
-    public static List<ApplicationContextDataCustomEntity> getApplicationContextDataCustomEntities(Map<String, String> map) {
+    public static List<ApplicationContextDataCustomEntity> getApplicationContextDataCustomEntities(Map<String, String> map, Map<String, String> sort) {
         List<ApplicationContextDataCustomEntity> list = new ArrayList<ApplicationContextDataCustomEntity>(map.size());
         Set<Map.Entry<String,String>> entries = map.entrySet();
         for (Map.Entry<String, String> entry : entries) {
             ApplicationContextDataCustomEntity entity = new ApplicationContextDataCustomEntity(
                     entry.getKey(),  // This is the value part :: <expression value="2" bundleKey="Hoghoghi"/>
-                    entry.getValue() // This is the bundleKey part :: <expression value="2" bundleKey="Hoghoghi"/>
+                    entry.getValue(), // This is the bundleKey part :: <expression value="2" bundleKey="Hoghoghi"/>
+                    sort.get(entry.getKey()) // this is the sort value
             );
             list.add(entity);
         }
+        Collections.sort(list, new Comparator<ApplicationContextDataCustomEntity>() {
+            public int compare(ApplicationContextDataCustomEntity o1, ApplicationContextDataCustomEntity o2) {
+                String firstValue  = o1.getSortItem();
+                String secondValue = o2.getSortItem();
+                if(firstValue == null || secondValue == null)
+                    throw new RuntimeException("the sort item is null");
+                return firstValue.compareTo(secondValue);
+            }
+        });
         return list;
     }
 

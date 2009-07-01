@@ -73,15 +73,17 @@ public class HibernatePersistenceManagerImpl implements HibernatePersistenceMana
             Session session = HibernateUtility.getCurrentSession();
             HibernateUtility.currentTransaction();
 
-            Object result = null;
+            Object result;
             result = command.execute(session);
 
-            HibernateUtility.commitTransaction();
+            if(!HibernateUtility.isConversation())
+                HibernateUtility.commitTransaction();
 
             return result;
         } catch (HibernateException e) {
             try {
-                HibernateUtility.rollbackTransaction();
+                if(!HibernateUtility.isConversation())
+                    HibernateUtility.rollbackTransaction();
             } catch (HibernateException he) {
                 throw HibernateUtility.translateException(e);
             }
@@ -97,7 +99,7 @@ public class HibernatePersistenceManagerImpl implements HibernatePersistenceMana
     /* PersistencManager Implementation */
 
     public Object findByPrimaryKey(final Class clazz, final Serializable pk) throws HibernateEXC {
-        return (Object) executeCommand(new HibernateCommand() {
+        return executeCommand(new HibernateCommand() {
             public Object execute(Session session) throws HibernateException {
                 return session.createCriteria(clazz).add(Expression.eq(OBJECT_ID, pk)).uniqueResult();
             }
@@ -105,7 +107,7 @@ public class HibernatePersistenceManagerImpl implements HibernatePersistenceMana
     }
 
     public Object findByPrimaryKey(final Object object) throws HibernateEXC {
-        return (Object) executeCommand(new HibernateCommand() {
+        return executeCommand(new HibernateCommand() {
             public Object execute(Session session) throws HibernateException {
                 Class clazz = object.getClass();
                 return session.createCriteria(clazz).add(Expression.eq(OBJECT_ID, object)).uniqueResult();
@@ -178,7 +180,7 @@ public class HibernatePersistenceManagerImpl implements HibernatePersistenceMana
     public Object findUniqueByCondition(final Class clazz, final Criterion criterion)
             throws HibernateEXC {
 
-        return (Object) executeCommand(new HibernateCommand() {
+        return executeCommand(new HibernateCommand() {
             public Object execute(Session session) throws HibernateException {
                 Criteria criteria = session.createCriteria(clazz);
                 if (criterion != null) {
@@ -191,6 +193,22 @@ public class HibernatePersistenceManagerImpl implements HibernatePersistenceMana
 
     public List findByCondition(final Class clazz, final Criterion criterion) throws HibernateEXC {
         return findByConditionOrderBy(clazz, criterion, 0, 0, null, false);
+    }
+
+    public List findByCondition(final Class clazz, final Criterion criterion,
+                                final Map<String, Criterion> nestedQueries) throws HibernateEXC {
+        return (List) executeCommand(new HibernateCommand() {
+            public Object execute(Session session) throws HibernateException {
+                Criteria master = session.createCriteria(clazz);
+                master.add(criterion);
+                final Set<Map.Entry<String, Criterion>> entries = nestedQueries.entrySet();
+                for (Map.Entry<String, Criterion> entry : entries) {
+                    final Criteria criteria = master.createCriteria(entry.getKey());
+                    criteria.add(entry.getValue());
+                }
+                return master.list();
+            }
+        });
     }
 
     public List findByConditionOrderBy(Class clazz, Criterion criterion, String orderBy, boolean ascending)
@@ -261,8 +279,8 @@ public class HibernatePersistenceManagerImpl implements HibernatePersistenceMana
 
                 Criteria criteria = session.createCriteria(clazz).
                         setFirstResult(start);
-                for (Iterator itr = criteriaList.iterator(); itr.hasNext();) {
-                    Criterion criterion = (Criterion) itr.next();
+                for (Object aCriteriaList : criteriaList) {
+                    Criterion criterion = (Criterion) aCriteriaList;
                     if (criterion != null) {
                         criteria.add(criterion);
                     }
@@ -304,7 +322,7 @@ public class HibernatePersistenceManagerImpl implements HibernatePersistenceMana
     }
 
     public Object findUniqueByQuery(final String hql, final Object[] parameters) throws HibernateEXC {
-        return (Object) executeCommand(new HibernateCommand() {
+        return executeCommand(new HibernateCommand() {
             public Object execute(Session session) throws HibernateException {
                 Query query = session.createQuery(hql);
                 if (parameters != null) {
@@ -340,8 +358,8 @@ public class HibernatePersistenceManagerImpl implements HibernatePersistenceMana
                 Query query = session.createQuery(hql);
                 if (parameters != null && parameters.size() != 0) {
                     Set entrySet = parameters.entrySet();
-                    for (Iterator iterator = entrySet.iterator(); iterator.hasNext();) {
-                        Map.Entry entry = (Map.Entry) iterator.next();
+                    for (Object anEntrySet : entrySet) {
+                        Map.Entry entry = (Map.Entry) anEntrySet;
                         query.setParameter((String) entry.getKey(), entry.getValue());
                     }
                 }
@@ -360,17 +378,15 @@ public class HibernatePersistenceManagerImpl implements HibernatePersistenceMana
     }
 
     public int count(final Class clazz) throws HibernateEXC {
-        Integer result = (Integer) executeCommand(new HibernateCommand() {
+        return (Integer) executeCommand(new HibernateCommand() {
             public Object execute(Session session) throws HibernateException {
                 return session.createQuery("select count(object) from " + clazz.getName() + " as object").
                         uniqueResult();
             }
         });
-
-        return result;
     }
     public int count(final Class clazz, final Criterion criterion) throws HibernateEXC {
-        Integer result = (Integer) executeCommand(new HibernateCommand() {
+        return (Integer) executeCommand(new HibernateCommand() {
             public Object execute(Session session) throws HibernateException {
                 Criteria criteria = session.createCriteria(clazz);
                 assert criterion != null;
@@ -378,8 +394,6 @@ public class HibernatePersistenceManagerImpl implements HibernatePersistenceMana
                 return criteria.list().size();
             }
         });
-
-        return result;
     }
 
     public void persist(final Object kafaObject) throws HibernateEXC {

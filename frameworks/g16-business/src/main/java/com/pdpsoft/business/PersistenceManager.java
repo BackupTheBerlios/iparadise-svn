@@ -112,6 +112,15 @@ public interface PersistenceManager {
      * @throws HibernateEXC
      */
     List findByCondition(Class clazz, Criterion criterion) throws HibernateEXC;
+    /**
+     * finds all domain objects with specific type validating <code>criterion</code>.
+     *
+     * @param clazz     result domain object's type
+     * @param criterion a condition for check
+     * @return List of all founded domain objects
+     * @throws HibernateEXC
+     */
+    List findByCondition(Class clazz, Criterion criterion, final Map<String, Criterion> nestedQueries) throws HibernateEXC;
 
     /**
      * fidns all domain objects with specific type validating <code>criterion</code>.

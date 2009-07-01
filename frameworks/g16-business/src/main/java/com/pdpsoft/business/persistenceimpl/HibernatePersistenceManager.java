@@ -148,6 +148,18 @@ public class HibernatePersistenceManager implements PersistenceManager {
     }
 
     /**
+     * finds all domain objects with specific type validating <code>criterion</code>.
+     *
+     * @param clazz     result domain object's type
+     * @param criterion a condition for check
+     * @return List of all founded domain objects
+     * @throws HibernateEXC
+     */
+    public List findByCondition(Class clazz, Criterion criterion, Map<String, Criterion> nestedQueries) throws HibernateEXC {
+        return persistenceManager.findByCondition(clazz, criterion, nestedQueries);
+    }
+
+    /**
      * fidns all domain objects with specific type validating <code>criterion</code>.
      *
      * @param clazz     result domain object's type

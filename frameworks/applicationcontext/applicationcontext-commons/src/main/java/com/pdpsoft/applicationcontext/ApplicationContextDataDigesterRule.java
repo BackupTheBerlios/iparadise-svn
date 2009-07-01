@@ -29,9 +29,10 @@ public class ApplicationContextDataDigesterRule {
         digester.addSetProperties("application-data/dto/attribute");
 
         // This is the third step inside <expression value="1" bundleKey="Haghighi"/>
-        digester.addCallMethod("application-data/dto/attribute/expression", "addMap", 2);
+        digester.addCallMethod("application-data/dto/attribute/expression", "addMap", 3);
         digester.addCallParam("application-data/dto/attribute/expression", 0, "value");
-        digester.addCallParam("application-data/dto/attribute/expression", 1, "bundleKey" );
+        digester.addCallParam("application-data/dto/attribute/expression", 1, "bundleKey");
+        digester.addCallParam("application-data/dto/attribute/expression", 2, "sortItem");
 
         // Next Attribute
         digester.addSetNext("application-data/dto/attribute", "addAttributeCustomEntity");

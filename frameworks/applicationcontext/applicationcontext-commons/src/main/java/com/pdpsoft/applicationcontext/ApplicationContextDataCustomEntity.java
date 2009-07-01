@@ -24,10 +24,15 @@ public final class ApplicationContextDataCustomEntity extends G16ParentCustomEnt
         This property should have value whenever we use it in web
      */
     private String message;
+    /*
+        this is the only sort item
+     */
+    private String sortItem;
 
-    protected ApplicationContextDataCustomEntity(String value, String bundleKey) {
+    protected ApplicationContextDataCustomEntity(String value, String bundleKey, String sort) {
         this.value = value;
         this.bundleKey = bundleKey;
+        this.sortItem = sort;
     }
 
     public String getValue() {
@@ -52,5 +57,13 @@ public final class ApplicationContextDataCustomEntity extends G16ParentCustomEnt
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getSortItem() {
+        return sortItem;
+    }
+
+    public void setSortItem(String sortItem) {
+        this.sortItem = sortItem;
     }
 }

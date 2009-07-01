@@ -9,6 +9,8 @@ import org.apache.struts.actions.DispatchAction;
  * Time: 9:39:09 AM
  */
 public class PdpSoftWebStrutsAction extends DispatchAction {
+    public final static String WEB_LOGIN_MODULE_SCHEMA_CONTEXT = "iParadise_WEB_LOGIN_MODULE_SCHEMA_CONTEXT";
+    public final static String WEB_LOGIN_MODULE_CITY_CODE_CONTEXT = "iParadise_WEB_LOGIN_MODULE_CITY_CODE_CONTEXT";
     public final static String SECURITY_CONTEXT = "iParadise_SECURITY_CONTEXT";
     public final static String SECURITY_CONTEXT_AUTHORIZATION = "iParadise_SECURITY_CONTEXT_AUTHORIZATION";
     public final static String SECURITY_FILTER_APPLIED = "iParadise_SECURITY_FILTER_APPLIED";

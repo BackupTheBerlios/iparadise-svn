@@ -27,7 +27,7 @@ class ApplicationContextUtility {
             List<AttributeCustomEntity> entityList = entity.getAttributeCustomEntityList();
             for (AttributeCustomEntity customEntity : entityList) {
                 LOG.debug("the property name is : " + customEntity.getPropertyName());
-                List<ApplicationContextDataCustomEntity> contextDataCustomEntities = ApplicationDataConvertor.getApplicationContextDataCustomEntities(customEntity.getMap());
+                List<ApplicationContextDataCustomEntity> contextDataCustomEntities = ApplicationDataConvertor.getApplicationContextDataCustomEntities(customEntity.getMap(), customEntity.getSort());
                 for (ApplicationContextDataCustomEntity expr : contextDataCustomEntities) {
                     LOG.debug(new StringBuilder().append("the expression is :")
                             .append(expr.getValue())

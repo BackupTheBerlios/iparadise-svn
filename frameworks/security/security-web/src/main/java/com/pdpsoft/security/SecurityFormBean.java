@@ -18,7 +18,9 @@ public class SecurityFormBean extends PdpSoftActionForm {
     private String confirmPassword;
     private SystemGroupCustomEntity[] systemGroupCustomEntities;
     private SystemGroupCustomEntity[] editSystemGroupCustomEntities;
-
+    private List<LoginModuleContextDataCustomEntity> schemas;
+    private String cityCode;
+    
     public SystemUserEntity getSystemUserEntity() {
         return systemUserEntity;
     }
@@ -57,5 +59,21 @@ public class SecurityFormBean extends PdpSoftActionForm {
 
     public void setEditSystemGroupCustomEntities(SystemGroupCustomEntity[] editSystemGroupCustomEntities) {
         this.editSystemGroupCustomEntities = editSystemGroupCustomEntities;
+    }
+
+    public List<LoginModuleContextDataCustomEntity> getSchemas() {
+        return schemas;
+    }
+
+    public void setSchemas(List<LoginModuleContextDataCustomEntity> schemas) {
+        this.schemas = schemas;
+    }
+
+    public String getCityCode() {
+        return cityCode;
+    }
+
+    public void setCityCode(String cityCode) {
+        this.cityCode = cityCode;
     }
 }

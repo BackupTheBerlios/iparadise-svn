@@ -2,9 +2,9 @@
 <application-data>
     <dto fullQualifiedClassName="Customer">
         <attribute propertyName="customerType">
-            <expression value="1" bundleKey="Haghighi"/>
-            <expression value="2" bundleKey="Hoghoghi"/>
-            <expression value="3" bundleKey="33333"/>
+            <expression value="1" bundleKey="Haghighi" sortItem="2"/>
+            <expression value="2" bundleKey="Hoghoghi" sortItem="3"/>
+            <expression value="3" bundleKey="33333"    sortItem="1"/>
         </attribute>
         <attribute propertyName="type">
             <expression value="1" bundleKey="Haghighi"/>

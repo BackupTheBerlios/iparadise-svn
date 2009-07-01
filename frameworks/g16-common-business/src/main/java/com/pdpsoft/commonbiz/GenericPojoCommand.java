@@ -94,7 +94,7 @@ public class GenericPojoCommand {
     * @return An object insnatce of clazz
     * @throws BusinessException BusinessException
     */
-   public Object findByPrimaryKey(final Class clazz, final Integer pkValue, final String aspectName) throws BusinessException {
+   public Object findByPrimaryKey(final Class clazz, final Object pkValue, final String aspectName) throws BusinessException {
        Map<Integer, Object> map = new HashMap<Integer, Object>(2);
        map.put(CommonBusinessCommandUtility.FindByPrimaryKeyCommandEnumeration.CLASS, clazz);
        map.put(CommonBusinessCommandUtility.FindByPrimaryKeyCommandEnumeration.PK_VALUE, pkValue);

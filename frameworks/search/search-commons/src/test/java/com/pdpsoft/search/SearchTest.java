@@ -61,6 +61,5 @@ public class SearchTest extends TestCase {
                 SearchRestrictions.not(searchCriterion),
                 between
         ).getExpression());
-
     }
 }

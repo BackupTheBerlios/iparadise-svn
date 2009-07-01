@@ -13,6 +13,7 @@ import org.apache.commons.lang.StringUtils;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.Serializable;
 
 /**
  * Created by IntelliJ IDEA.
@@ -30,15 +31,12 @@ public class FindByPrimaryKeyWebCommand extends G16GenericWebCommand implements 
         String aspectName = (String) g16ChainContext.get(ASPECT_NAME);
         aspectName = (StringUtils.isEmpty(aspectName) ? getGenericAspectName() : aspectName);
 
-        Integer obj = (Integer) g16ChainContext.get(PARAMETER);
-
-
         List<Object> args = new ArrayList<Object>(3);
         args.add(g16ParentEntity.getClass());
-        args.add(obj);
+        args.add(g16ChainContext.get(PARAMETER));
         args.add(aspectName);
 
-        Object result = null;
+        Object result;
         boolean resultStatus = Command.CONTINUE_PROCESSING;
         try {
             result = defaultInvokeBusiness(G16GenericWebCommand.GenericCommandsEnum.findByPrimaryKey, args);

@@ -11,6 +11,8 @@ import org.hibernate.criterion.Criterion;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.HashMap;
 
 /**
  * Created by IntelliJ IDEA.
@@ -29,17 +31,47 @@ public class SearchBusinessCommand implements G16CommonBusinessCommand {
      * @throws G16CommonBusinessException
      * @throws HibernateEXC
      */
+    @SuppressWarnings({"unchecked"})
     public Object execute(Object o) throws G16CommonBusinessException, HibernateEXC {
         Map<Integer, Object> param = (Map<Integer, Object>) o;
         SearchParameter searchParameter = (SearchParameter) param.get(0);
-        LOG.info("Search is going to occur on object".concat(searchParameter.getValueObjectClass().getName()));
-        Criterion expression = searchParameter.getSearchCriteria().getExpression();
-        LOG.info(" and the query is".concat(expression.toString()));
-        List list = persistenceManager.findByCondition(searchParameter.getValueObjectClass(), expression);
-        if(list != null)
-            LOG.info("Size of the object is ".concat(String.valueOf(list.size())));
+
+        List result;
+        if(searchParameter.nestedSize() == 0) {
+            result = normalSearch(searchParameter);
+        } else {
+            result = nestedQuery(searchParameter);
+        }
+        if(result != null)
+            LOG.info("Size of the object is ".concat(String.valueOf(result.size())));
         else
             LOG.info("There wasn't any record with the specified query.");
-        return list;
+        return result;
+    }
+
+    /**
+     * nested query will be occure
+     * @param searchParameter
+     * @return
+     * @throws HibernateEXC
+     */
+    private List nestedQuery(SearchParameter searchParameter) throws HibernateEXC {
+        final Map<String, Criterion> map = new HashMap<String, Criterion>();
+        final Set<Map.Entry<String,SearchCriterion>> entries = searchParameter.getNestedQuery().entrySet();
+        for (Map.Entry<String, SearchCriterion> entry : entries) {
+            map.put(entry.getKey(), entry.getValue().getExpression());
+        }
+        return persistenceManager.findByCondition(searchParameter.getValueObjectClass(), searchParameter.getSearchCriteria().getExpression(), map);
+    }
+
+    /**
+     * normal search without nested query
+     * @param searchParameter
+     * @return
+     * @throws HibernateEXC
+     */
+    private List normalSearch(SearchParameter searchParameter) throws HibernateEXC {
+        Criterion expression = searchParameter.getSearchCriteria().getExpression();
+        return persistenceManager.findByCondition(searchParameter.getValueObjectClass(), expression);
     }
 }

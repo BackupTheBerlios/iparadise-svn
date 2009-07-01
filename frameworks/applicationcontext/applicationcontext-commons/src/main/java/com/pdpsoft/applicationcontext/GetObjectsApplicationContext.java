@@ -31,7 +31,7 @@ public class GetObjectsApplicationContext implements ApplicationContextCommand {
      */
     public static List<ApplicationContextDataCustomEntity> getObjects(final DataTransferObjectCustomEntity entity, final String properyName) {
         AttributeCustomEntity theAttribute = findSpecificAttribute(entity, properyName);
-        return ApplicationDataConvertor.getApplicationContextDataCustomEntities(theAttribute.getMap());
+        return ApplicationDataConvertor.getApplicationContextDataCustomEntities(theAttribute.getMap(), theAttribute.getSort());
     }
 
     /**

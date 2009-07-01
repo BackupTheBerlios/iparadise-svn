@@ -19,11 +19,28 @@ import java.util.List;
 public class SecurityAction extends PdpSoftWebStrutsAction {
     final static Log LOG = LogFactory.getLog(SecurityAction.class);
 
+    public ActionForward signinPage(ActionMapping mapping,
+                                ActionForm form,
+                                HttpServletRequest request,
+                                HttpServletResponse response) {
+        SecurityFormBean bean = (SecurityFormBean) form;
+        bean.setSchemas(WebLoginModuleContext.getObjects());
+        return mapping.findForward("login-page");
+    }
     public ActionForward signin(ActionMapping mapping,
                                 ActionForm form,
                                 HttpServletRequest request,
                                 HttpServletResponse response) {
         LOG.info("The process of authentication and authorization starts ....");
+        SecurityFormBean bean = (SecurityFormBean) form;
+        final String cityCode = bean.getCityCode();
+        request.getSession().setAttribute(WEB_LOGIN_MODULE_CITY_CODE_CONTEXT, cityCode);
+        LOG.debug("cityCode =" + cityCode);
+        final String schemaName = WebLoginModuleContext.getSchemaName(cityCode);
+        LOG.debug("schemaName =" + schemaName);
+        request.getSession().setAttribute(WEB_LOGIN_MODULE_SCHEMA_CONTEXT, schemaName);
+        LoginModuleContextHolder.getInstance().setSelectedSchemaName(schemaName);
+        LoginModuleContextHolder.getInstance().setSelectedCityCode(cityCode);
         return mapping.findForward(
                 SecurityWebUtility.signin(form, request, response)
         );
@@ -43,5 +60,13 @@ public class SecurityAction extends PdpSoftWebStrutsAction {
         SystemUserEntity argument = new SystemUserEntity();
         LOG.info("The username within object is :".concat(argument.getUserNameIdentifier()) );
         return mapping.findForward("success-login-page");
+    }
+
+    public ActionForward signout(ActionMapping mapping,
+                                ActionForm form,
+                                HttpServletRequest request,
+                                HttpServletResponse response) {
+        SecurityContextHolder.clearContext();
+        return mapping.findForward("login-page");
     }
 }

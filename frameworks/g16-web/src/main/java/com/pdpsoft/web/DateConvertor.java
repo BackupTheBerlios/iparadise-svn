@@ -2,10 +2,11 @@ package com.pdpsoft.web;
 
 import org.apache.commons.beanutils.ConversionException;
 import org.apache.commons.beanutils.Converter;
+import org.apache.commons.lang.StringUtils;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Arrays;
 
 /**
  * Created by IntelliJ IDEA.
@@ -66,14 +67,10 @@ public class DateConvertor implements Converter {
         if (strDate.trim().length() == 0) {
             return null;
         }
-        try {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            simpleDateFormat.setCalendar(new JalaliCalendar());
-            return simpleDateFormat.parse(strDate);
-        }
-        catch (ParseException pX) {
-            throw new ConversionException(pX);
-        }
+
+        final String[] strings = StringUtils.split(strDate, '/');
+        Calendar jalaliCalendar = new JalaliCalendar(Integer.valueOf(strings[0]), Integer.valueOf(strings[1]) - 1, Integer.valueOf(strings[2]));
+        return jalaliCalendar.getTime();
     }
 
     public static void main(String[] args) {

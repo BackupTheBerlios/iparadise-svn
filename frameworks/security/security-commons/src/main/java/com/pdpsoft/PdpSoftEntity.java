@@ -76,6 +76,10 @@ public class PdpSoftEntity extends G16ParentEntity {
         return version;
     }
 
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
     public Integer getCityCode() {
         return cityCode;
     }

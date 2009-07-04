@@ -53,7 +53,7 @@ public abstract class CommonBusinessCommandFactory {
         } catch (G16CommonBusinessException e) {
             throw e;
         } catch (HibernateEXC e) {
-            throw new BusinessException(e.getMessage(), e, e.getErrNum());
+            throw new G16CommonBusinessException(e.getMessage(), e, e.getErrNum());
         }
         return returnValue;
     }

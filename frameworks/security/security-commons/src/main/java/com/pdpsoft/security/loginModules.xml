@@ -1,0 +1,9 @@
+<?xml version='1.0'?>
+<login-modules>
+    <login-module defaultSchemaName="2" hibernateConfigurationName="123.cfg.xml" defaultCityCode="dslkslfs" >
+        <schemas>
+            <schema nameKey="11" schema-name="22" cityCode="code1" />
+            <schema nameKey="33" schema-name="44" cityCode="code2" />
+        </schemas>
+    </login-module>
+</login-modules>

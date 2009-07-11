@@ -78,6 +78,8 @@ public class SecurityContextHolder implements SecurityContext {
      * Explicitly clears the context value from the current thread.
      */
     public static void clearContext() {
+        systemUserEntityThreadLocal.remove();
+        actionsThreadLocal.remove();
         systemUserEntityThreadLocal.set(null);
         actionsThreadLocal.set(null);
     }

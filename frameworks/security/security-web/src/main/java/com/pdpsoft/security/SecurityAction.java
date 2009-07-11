@@ -24,7 +24,7 @@ public class SecurityAction extends PdpSoftWebStrutsAction {
                                 HttpServletRequest request,
                                 HttpServletResponse response) {
         SecurityFormBean bean = (SecurityFormBean) form;
-        bean.setSchemas(WebLoginModuleContext.getObjects());
+        SecurityWebUtility.initCombo(bean);
         return mapping.findForward("login-page");
     }
     public ActionForward signin(ActionMapping mapping,
@@ -40,26 +40,10 @@ public class SecurityAction extends PdpSoftWebStrutsAction {
         LOG.debug("schemaName =" + schemaName);
         request.getSession().setAttribute(WEB_LOGIN_MODULE_SCHEMA_CONTEXT, schemaName);
         LoginModuleContextHolder.getInstance().setSelectedSchemaName(schemaName);
-        LoginModuleContextHolder.getInstance().setSelectedCityCode(cityCode);
+        LoginModuleContextHolder.getInstance().setSelectedCityCode(cityCode);        
         return mapping.findForward(
                 SecurityWebUtility.signin(form, request, response)
         );
-    }
-
-    public ActionForward printUsername(ActionMapping mapping,
-                                ActionForm form,
-                                HttpServletRequest request,
-                                HttpServletResponse response) {
-//        SecurityContext context = SecurityContextHolder.getContext();
-        SystemUserEntity systemUserEntity = (SystemUserEntity) request.getSession().getAttribute(PdpSoftWebStrutsAction.SECURITY_CONTEXT);
-        List<SystemActionEntity> actionEntities = (List<SystemActionEntity>) request.getSession().getAttribute(PdpSoftWebStrutsAction.SECURITY_CONTEXT_AUTHORIZATION);
-
-        LOG.info("SecurityContext in action is " + actionEntities);
-        LOG.info("AuthorizationCustomEntity in action is" + actionEntities);
-        LOG.info("The logged user is :".concat(systemUserEntity.getUserName()));
-        SystemUserEntity argument = new SystemUserEntity();
-        LOG.info("The username within object is :".concat(argument.getUserNameIdentifier()) );
-        return mapping.findForward("success-login-page");
     }
 
     public ActionForward signout(ActionMapping mapping,
@@ -67,6 +51,8 @@ public class SecurityAction extends PdpSoftWebStrutsAction {
                                 HttpServletRequest request,
                                 HttpServletResponse response) {
         SecurityContextHolder.clearContext();
+        SecurityFormBean bean = (SecurityFormBean) form;
+        SecurityWebUtility.initCombo(bean);
         return mapping.findForward("login-page");
     }
 }

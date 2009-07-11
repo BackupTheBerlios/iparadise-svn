@@ -46,8 +46,8 @@ class SecurityWebUtility {
         g16ChainContext.setWebBeanContext(webBeanContext);
         G16ChainManager chainManager = new G16ChainManager() {
             public boolean run(G16ChainContext ctx) throws Exception {
-                Map<Integer, SystemUserEntity> map = new HashMap<Integer, SystemUserEntity>(1);
-                map.put(0, bean.getSystemUserEntity());
+                Map<Integer, Object> map = new HashMap<Integer, Object>(1);                
+                map.put(0, SecurityAlgorithm.seal(bean.getSystemUserEntity()));
 
                 ctx.put(G16GenericWebCommand.ASPECT_NAME, "ParadiseAuthenticationAuthorizationService");
                 ctx.put(G16GenericWebCommand.PARAMETER, map);
@@ -69,6 +69,7 @@ class SecurityWebUtility {
                         It means the process has some exceptions, hence the forward should change.
                      */
                     ctx.put(loginStatus, false);
+                    initCombo(bean);
                 }
                 return false;
             }
@@ -113,4 +114,9 @@ class SecurityWebUtility {
         session.setAttribute(PdpSoftWebStrutsAction.SECURITY_CONTEXT_AUTHORIZATION, customEntity.getSystemActionEntities());
         session.setAttribute(PdpSoftWebStrutsAction.SECURITY_FILTER_APPLIED, Boolean.TRUE);
     }
+
+    public static void initCombo(SecurityFormBean bean) {
+        bean.setSchemas(WebLoginModuleContext.getObjects());
+    }
+
 }

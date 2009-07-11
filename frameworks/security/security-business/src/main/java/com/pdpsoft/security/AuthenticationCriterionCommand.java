@@ -18,6 +18,7 @@ import java.util.Map;
 public class AuthenticationCriterionCommand implements G16CommonBusinessCommand {
     final static Log LOG = LogFactory.getLog(AuthenticationCriterionCommand.class);
 
+    @SuppressWarnings({"unchecked"})
     public Object execute(Object o) throws G16CommonBusinessException, HibernateEXC {
         Map<Integer, SystemUserEntity> map = (Map<Integer, SystemUserEntity>) o;
         SystemUserEntity argument = map.get(0);
@@ -29,7 +30,7 @@ public class AuthenticationCriterionCommand implements G16CommonBusinessCommand 
         LOG.info("An attemp for login occured by username=".concat(argument.getUserName())
                 .concat("; and status is=").concat(argument.getStatus())
             );
-
+        argument.setPassword(SecurityAlgorithm.encrypt(argument.getPassword()));
         /**
          * Checks the
          * 1) username should be the same as user has been entered

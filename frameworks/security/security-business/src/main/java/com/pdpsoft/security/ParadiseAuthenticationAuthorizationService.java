@@ -9,8 +9,10 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.criterion.Criterion;
 
+import javax.crypto.SealedObject;
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
 
 /**
  * Created by IntelliJ IDEA.
@@ -33,9 +35,12 @@ public class ParadiseAuthenticationAuthorizationService implements G16CommonBusi
      * @throws G16CommonBusinessException
      * @throws HibernateEXC
      */
+    @SuppressWarnings({"unchecked"})
     public Object execute(Object o) throws G16CommonBusinessException, HibernateEXC {
+        Map<Integer, Object> arg = (Map<Integer, Object>) o;
+        Map<Integer, SystemUserEntity> param = new HashMap<Integer, SystemUserEntity>();
+        param.put(0, (SystemUserEntity) SecurityAlgorithm.unseal((SealedObject) arg.get(0)));
 
-        Map<Integer, SystemUserEntity> param = (Map<Integer, SystemUserEntity>) o;
         SystemUserEntity systemUserEntity = authenticate(param);
         param.put(0, systemUserEntity);
         return new AuthorizationCustomEntity(systemUserEntity, (List<SystemActionEntity>) authorization.execute(param));
@@ -49,6 +54,7 @@ public class ParadiseAuthenticationAuthorizationService implements G16CommonBusi
      *         done and the specified user has been loaded
      * @throws SecurityException when authentication fails
      */
+    @SuppressWarnings({"unchecked"})
     private SystemUserEntity authenticate(Map<Integer, SystemUserEntity> map) throws G16CommonBusinessException, HibernateEXC {
         List<SystemUserEntity> userEntityList = persistenceManager.findByCondition(SystemUserEntity.class, (Criterion) authentication.execute(map));
         if (userEntityList.size() != 1)
